@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  root 'application#hello'
-
+  resources :questions, only: [:index, :show, :create, :destroy]
+  root 'home#top'
 end
