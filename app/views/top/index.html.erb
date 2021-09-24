@@ -15,5 +15,9 @@
 </header>
 
 <main>
-  
+  <% @questions.each do |question| %>
+  <div>
+    <%= question.text %>
+  </div>
+  <% end %>
 </main>
