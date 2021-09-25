@@ -8,8 +8,25 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
+  
   <body>
+    
+    <header>
+    <div class="container">
+      <ul class="header-list">
+        <li class="header-item">
+          <a href="/"><img src="/hakui.png" alt="画像がありません" ></a>
+        </li>
+        <li class="header-item">
+          <a href="#"><p>🔎</p></a>
+        </li>
+        <li class="header-item">
+          <a href="#"><img class="margin-top" src="/no-profile.png" alt="画像がありません" ></a>
+        </li>
+      </ul>
+    </div>
+    </header>
+    
     <%= yield %>
   </body>
 </html>

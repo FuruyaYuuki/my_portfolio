@@ -1,23 +1,12 @@
-<header>
-  <div class="container">
-    <ul class="header-list">
-      <li class="header-item">
-        <a href="/"><img src="/hakui.png" alt="画像がありません" ></a>
-      </li>
-      <li class="header-item">
-        <a href="#"><p>🔎</p></a>
-      </li>
-      <li class="header-item">
-        <a href="#"><img class="margin-top" src="/no-profile.png" alt="画像がありません" ></a>
-      </li>
-    </ul>
-  </div>
-</header>
-
 <main>
-  <% @questions.each do |question| %>
-  <div>
-    <%= question.text %>
+  <div class="container">
+    <% @questions.each do |question| %>
+      <div>
+        <%= link_to(question.text, "/questions/#{question.id}") %>
+      </div>
+    <% end %>
+    <div>
+      <%= link_to("質問する", "/questions/new") %>
+    </div>
   </div>
-  <% end %>
 </main>
