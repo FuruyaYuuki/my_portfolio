@@ -1,7 +1,7 @@
 class QuestionsController < ApplicationController
 
   def index
-    @questions = Question.all
+    @questions = Question.all.order(created_at: :desc)
   end
 
   def show
@@ -13,6 +13,9 @@ class QuestionsController < ApplicationController
   end
 
   def create
+    @question = Question.new(text: params[:text])
+    @question.save
+    redirect_to("/questions/index")
   end
 
   def destroy
