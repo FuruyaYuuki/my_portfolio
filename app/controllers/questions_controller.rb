@@ -15,10 +15,13 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(text: params[:text])
     @question.save
-    redirect_to("/questions/index")
+    redirect_to("/")
   end
 
   def destroy
+    @question = Question.find(params[:id])
+    @question.destroy
+    redirect_to("/")
   end
 
   private

@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
-  resources :questions, only: [:index, :show, :new, :create, :destroy]
+  devise_for :users
+  get "questions/index" => "questions#index"
+  get "questions/new" => "questions#new"
+  get "questions/:id" => "questions#show"
+  
+  post "questions/create" => "questions#create"
+  
+  delete "questions/:id/destroy" => "questions#destroy"
+  
   root 'top#index'
 end
