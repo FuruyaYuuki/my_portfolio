@@ -1,11 +1,14 @@
-<main>
-  <div class="container">
-     <h1>質問する</h1>
-     <%= form_tag("/questions/create") do %>
-       <div class="form">
-         <textarea name="text"></textarea>
-         <input type="submit" value="質問">
-       </div>
-     <% end %>
+<div class="container">
+  <div class="boxes">
+    <div class="box">
+      <h1>質問する</h1>
+      <%= form_tag("/questions/create") do %>
+        <div class="form">
+          <textarea name="text"></textarea>
+          <input type="submit" value="質問">
+        </div>
+      <% end %>
+      </div>
   </div>
-</main>
+</div>
+

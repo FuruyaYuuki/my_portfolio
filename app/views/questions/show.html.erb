@@ -1,7 +1,9 @@
-<main>
-  <div class="container">
-    <%= @question.text %>
-    <%= @question.created_at %>
-    <%= link_to '削除', "/questions/:id/destroy", method: :delete %>
+<div class="container">
+  <div class="boxes">
+    <div class="box">
+      <h3><%= @question.text %></h3>
+      <p><%= @question.created_at %></p>
+      <%= link_to '削除', "/questions/#{@question.id}", method: :delete %>
+    </div>
   </div>
-</main>
+</div>

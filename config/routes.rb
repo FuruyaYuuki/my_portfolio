@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   
   post "questions/create" => "questions#create"
   
-  delete "questions/:id/destroy" => "questions#destroy"
+  delete "questions/:id" => "questions#destroy"
   
   root 'top#index'
 end

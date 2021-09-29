@@ -1,10 +1,9 @@
-a {
-  text-decoration: none;
-  display: block;
-}
-
 body {
   margin: 0;
+}
+
+a {
+  text-decoration: none;
 }
 
 .container {
@@ -43,33 +42,32 @@ img {
   margin-top: 7px;
 }
 
-main {
-  height: 837px;
-  margin: 0;
-}
-
-.first-main {
-  position: relative;
-  background-color: rgba(255, 255, 255, 0.979);
-  height: 570px;
-}
-
-.first-main img {
-  width: 760px;
-}
-
-.first-main p {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  margin-right: 30px;
-  color: rgb(0, 0, 0);
-  font-size:60px;
+.boxes {
   display: grid;
-
-  grid-template-columns: 600px;
+  justify-content: center;
 }
 
+.box {
+  width: 600px;
+  height: 200px;
+  background-color: silver;
+  margin-bottom: 2px;
+}
+
+.box-text {
+  font-size: 20px;
+}
+
+.question-box {
+  position: absolute;
+  bottom: 100px;
+  right: 170px;
+  font-size: 30px;
+}
+
+.question {
+  
+}
 
 .footer {
   height: 50px;
