@@ -5,8 +5,13 @@
         <%= link_to(question.text, "/questions/#{question.id}", class: "box-text")  %>
       </div>
     <% end %>
+    
+    <div class="signup-box">
+      <%= link_to "新規登録", new_user_registration_path, class: "signup" %>
+    </div>
+    
     <div class="question-box">
-      <%= link_to("質問する", "/questions/new", class: "question") %>
+      <%= link_to "質問する", questions_new_path, class: "question" %>
     </div>
   </div>
 </div>
