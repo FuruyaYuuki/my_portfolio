@@ -1,7 +1,9 @@
 <div class="container">
   <div class="boxes">
     <div class="box">
+      <h3><%= @user.nickname %></h3>
       <h3><%= @user.email %></h3>
+      <%= link_to "プロフィールを編集", edit_user_registration_path %>
     </div>
   </div>
 </div>
