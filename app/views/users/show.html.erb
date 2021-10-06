@@ -1,9 +1,14 @@
 <div class="container">
   <div class="boxes">
     <div class="box">
-      <h3><%= @user.nickname %></h3>
-      <h3><%= @user.email %></h3>
-      <%= link_to "プロフィールを編集", edit_user_registration_path %>
+      <h1><%= current_user.nickname %></h1>
+      <%= link_to "プロフィール編集", edit_user_registration_path, class: "box-text" %>
     </div>
+    
+    <% current_user.questions.each do |question| %>
+      <div class="box">
+        <%= link_to(question.text, "/questions/#{question.id}", class: "box-text")  %>
+      </div>
+    <% end %>
   </div>
 </div>

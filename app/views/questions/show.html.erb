@@ -2,7 +2,7 @@
   <div class="boxes">
     <div class="box">
       <h3><%= @question.text %></h3>
-      <p><%= @question.created_at %></p>
+      <p><%= @question.user.nickname %></p>
       <%= link_to "削除", "/questions/#{@question.id}", method: :delete %>
     </div>
   </div>

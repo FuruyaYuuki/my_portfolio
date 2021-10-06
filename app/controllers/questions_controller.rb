@@ -9,12 +9,11 @@ class QuestionsController < ApplicationController
   end
   
   def new
-    
+    @question = Question.new
   end
 
   def create
-    @question = Question.new(text: params[:text])
-    @question.save
+    Question.create(create_params)
     redirect_to("/")
   end
 
@@ -26,6 +25,7 @@ class QuestionsController < ApplicationController
 
   private
   def create_params
-    params.require(:question).permit(:text)
+    params.require(:question).permit(:text).merge(user_id: current_user.id)
   end
+  
 end

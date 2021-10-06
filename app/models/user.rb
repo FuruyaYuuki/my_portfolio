@@ -4,6 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
          
+  # association
+  has_many :questions
+         
   def update_without_current_password(params, *options)
     params.delete(:current_password)
 
