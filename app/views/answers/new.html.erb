@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="boxes">
+    <div class="box">
+      <h1>回答する</h1>
+      <h3><span>Q.</span><%= @question.text %></h3>
+      <%= form_with model: @answer do |f| %>
+        <%= f.text_area :text, size: "33x5", maxlength: "200"%>
+        <%= f.hidden_field :question_id, value: @question.id %>
+        <br>
+        <%= f.submit "回答する" %>
+      <% end %>
+    </div>
+  </div>
+</div>

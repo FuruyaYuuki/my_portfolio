@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   end
 
   resources :questions, only: [:index, :new, :show, :create, :destroy]
-  resources :users, only: [:show ,:update]
+  resources :users, only: [:show]
+  resources :answers, only: [:new, :create, :edit, :update, :destroy]
   
   root 'top#index'
 end

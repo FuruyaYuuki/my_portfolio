@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 2021_10_03_063430) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
+    t.integer "question_id"
   end
 
   create_table "questions", force: :cascade do |t|

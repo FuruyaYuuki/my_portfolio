@@ -3,7 +3,16 @@
     <div class="box">
       <h3><%= @question.text %></h3>
       <p><%= @question.user.nickname %></p>
-      <%= link_to "削除", "/questions/#{@question.id}", method: :delete %>
+      <% if @question.answer %>
+        <h3><%= @question.answer.text %></h3>
+      <% else %>
+        <h3><%= link_to "回答する", new_answer_path(question_id: @question.id) %></h3>
+      <% end %>
+      <%= link_to "質問を削除", "/questions/#{@question.id}", method: :delete %>
+      <br>
+      <% if @question.answer %>
+        <%= link_to "回答を編集", edit_answer_path(@question.answer) %>
+      <% end %>
     </div>
   </div>
 </div>
