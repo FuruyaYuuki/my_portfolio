@@ -25,6 +25,7 @@
             <%= link_to image_tag("/no-profile.png"), user_path(current_user.id), class: "margin-top" %>
           <% else %>
             <%= link_to "ログイン", new_user_session_path, class: "margin-top" %>
+            <%= link_to "管理者ログイン", new_admin_session_path, class: "margin-top" %>
           <% end %>
         </li>
       </ul>

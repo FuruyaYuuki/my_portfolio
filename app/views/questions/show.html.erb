@@ -12,6 +12,8 @@
       <br>
       <% if @question.answer %>
         <%= link_to "回答を編集", edit_answer_path(@question.answer) %>
+        <br>
+        <%= link_to "回答を削除", "/answers/#{@question.answer.id}", method: :delete %>
       <% end %>
     </div>
   </div>
