@@ -3,16 +3,23 @@
     <div class="box">
       <h3><%= @question.text %></h3>
       <p><%= @question.user.nickname %></p>
+      
       <% if @question.answer %>
         <h3><%= @question.answer.text %></h3>
-      <% else %>
+      <% elsif admin_signed_in? %>
         <h3><%= link_to "回答する", new_answer_path(question_id: @question.id) %></h3>
       <% end %>
-      <%= link_to "質問を削除", "/questions/#{@question.id}", method: :delete %>
-      <br>
-      <% if @question.answer %>
+      
+      <% if user_signed_in? && current_user.id === @question.user_id %>
+        <%= link_to "質問を削除", "/questions/#{@question.id}", method: :delete %>
+      <% end %>
+
+      <% if admin_signed_in? %>
+        <%= link_to "質問を削除", "/questions/#{@question.id}", method: :delete %>
+      <% end %>
+
+      <% if @question.answer && admin_signed_in?%>
         <%= link_to "回答を編集", edit_answer_path(@question.answer) %>
-        <br>
         <%= link_to "回答を削除", "/answers/#{@question.answer.id}", method: :delete %>
       <% end %>
     </div>

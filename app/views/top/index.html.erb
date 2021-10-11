@@ -8,7 +8,7 @@
     
     <div class="signup-box">
       <% if user_signed_in? %>
-        <%= link_to "ログアウト", users_sign_out_path, class: "signup" %>
+        <%= link_to "ログアウト", destroy_user_session_path, class: "signup" %>
       <% else %>
         <%= link_to "新規登録", new_user_registration_path, class: "signup" %>
       <% end %>
