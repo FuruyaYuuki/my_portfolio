@@ -1,13 +1,13 @@
 <div class="container">
   <div class="boxes">
     <div class="box">
-      <h1><%= current_user.nickname %></h1>
+      <h1><%= current_admin.name %></h1>
       <%= link_to "プロフィール編集", edit_user_registration_path, class: "box-text" %>
     </div>
     
-    <% current_user.questions.order(created_at: :desc).each do |question| %>
+    <% current_admin.answers.order(created_at: :desc).each do |answer| %>
       <div class="box">
-        <%= link_to(question.text, question_path(question.id), class: "box-text")  %>
+        <%= link_to(answer.text, answer_path(answer.id), class: "box-text")  %>
       </div>
     <% end %>
   </div>

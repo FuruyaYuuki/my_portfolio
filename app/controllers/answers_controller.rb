@@ -4,6 +4,10 @@ class AnswersController < ApplicationController
     @answer = Answer.new
     @question = Question.find(params[:question_id])
   end
+  
+  def show
+    @answer = Answer.find(params[:id])
+  end
 
   def create
     Answer.create(create_params)
@@ -28,7 +32,7 @@ class AnswersController < ApplicationController
 
   private
   def create_params
-    params.require(:answer).permit(:question_id, :text).merge(user_id: current_user.id)
+    params.require(:answer).permit(:question_id, :text).merge(admin_id: current_admin.id)
   end
   
   def update_params

@@ -19,7 +19,9 @@ class QuestionsController < ApplicationController
 
   def destroy
     question = Question.find(params[:id])
+    answer = question.answer
     question.destroy
+    answer.destroy
     redirect_to("/")
   end
 

@@ -9,6 +9,8 @@
     <div class="signup-box">
       <% if user_signed_in? %>
         <%= link_to "ログアウト", destroy_user_session_path, class: "signup" %>
+      <% elsif admin_signed_in? %>
+        <%= link_to "ログアウト", destroy_admin_session_path, class: "margin-top" %>
       <% else %>
         <%= link_to "新規登録", new_user_registration_path, class: "signup" %>
       <% end %>

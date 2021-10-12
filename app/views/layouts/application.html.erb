@@ -24,7 +24,7 @@
           <% if user_signed_in? %>
             <%= link_to image_tag("/no-profile.png"), user_path(current_user.id), class: "margin-top" %>
           <% elsif admin_signed_in? %>
-            <%= link_to "ログアウト", destroy_admin_session_path, class: "margin-top" %>
+            <%= link_to image_tag("/no-profile.png"), admin_path(current_admin.id), class: "margin-top" %>
           <% else %>
             <%= link_to "ログイン", new_user_session_path, class: "margin-top" %>
             <%= link_to "管理者ログイン", new_admin_session_path, class: "margin-top" %>

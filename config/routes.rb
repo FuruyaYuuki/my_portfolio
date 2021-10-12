@@ -14,7 +14,8 @@ Rails.application.routes.draw do
 
   resources :questions, only: [:index, :new, :show, :create, :destroy]
   resources :users, only: [:show]
-  resources :answers, only: [:new, :create, :edit, :update, :destroy]
+  resources :admins, only: [:show]
+  resources :answers, only: [:new, :show, :create, :edit, :update, :destroy]
   
   root 'top#index'
   

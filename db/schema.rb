@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2021_10_08_145147) do
     t.text "text"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
+    t.integer "admin_id"
     t.integer "question_id"
   end
 
