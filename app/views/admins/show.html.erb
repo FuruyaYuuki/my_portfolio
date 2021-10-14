@@ -2,7 +2,7 @@
   <div class="boxes">
     <div class="box">
       <h1><%= current_admin.name %></h1>
-      <%= link_to "プロフィール編集", edit_user_registration_path, class: "box-text" %>
+      <%= link_to "プロフィール編集", edit_admin_registration_path, class: "box-text" %>
     </div>
     
     <% current_admin.answers.order(created_at: :desc).each do |answer| %>

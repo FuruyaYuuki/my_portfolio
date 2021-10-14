@@ -17,7 +17,10 @@
     </div>
     
     <div class="question-box">
-      <%= link_to "質問する", new_question_path, class: "question" %>
+      <% if user_signed_in? %>
+        <%= link_to "質問する", new_question_path, class: "question" %>
+      <% end %>
+      
     </div>
   </div>
 </div>

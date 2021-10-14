@@ -1,0 +1,27 @@
+<% if @model == 'user' %>
+  <h3>【Usersモデルの検索結果】検索ワード：<%= @text %></h3>
+  <% users.each do |user| %>
+    <%= user.nickname %><br>
+  <% end %>
+<% else @model == 'question' %>
+  <h3>【Questionsモデルの検索結果】検索ワード：<%= @text %></h3>
+  <table>
+    <thead>
+        <tr>
+            <th>投稿者名</th>
+            <th>本文</th>
+        </tr>
+    </thead>
+    <tbody id="question">
+    <% questions.each do |question| %>
+      <tr>
+        <td><%= link_to(question.text, "/questions/#{question.id}", class: "box-text")  %>/td>
+        <td><%= question.user_id.nickname %></td>
+        <% if question.user == current_user %>
+          <td><%= link_to "質問を削除", "/questions/#{@question.id}", method: :delete %></td>
+        <% end %>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% end %>
