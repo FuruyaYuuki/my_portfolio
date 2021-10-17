@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   resources :admins, only: [:show]
   resources :answers, only: [:new, :show, :create, :edit, :update, :destroy]
+  resources :likes, only: [:create, :destroy]
   get '/search', to: 'searchs#search'
   get '/search/form', to: 'searchs#form'
   
