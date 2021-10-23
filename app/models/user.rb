@@ -5,26 +5,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
          
   # association
-  has_many :questions, dependent: :destroy
-
-  has_many :likes, dependent: :destroy
-  has_many :like_questions, through: :likes, source: :question
+  has_many :questions
+  has_many :likes
   
   #like
-  def own?(object)
-    id == object.user_id
-  end
-
-  def like(question)
-    likes.find_or_create_by(question: question)
-  end
-
-  def like?(question)
-    like_questions.include?(question)
-  end
-
-  def unlike(question)
-    like_questions.delete(question)
+  def liked_by?(question_id)
+    likes.where(question_id: question_id).exists?
   end
          
   def update_without_current_password(params, *options)

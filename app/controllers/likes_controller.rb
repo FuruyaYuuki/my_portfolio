@@ -1,13 +1,18 @@
 class LikesController < ApplicationController
+  before_action :question_params
   
   def create
-    @question = Question.find(params[:question])
-    current_user.like(@question)
+    Like.create(user_id: current_user.id, question_id: params[:id])
   end
-
+  
   def destroy
-    @question = Like.find(params[:id]).question
-    current_user.unlike(@question)
+    Like.find_by(user_id: current_user.id, question_id: params[:id]).destroy
+  end
+  
+  private
+  
+  def question_params
+    @question = Question.find(params[:id])
   end
   
 end

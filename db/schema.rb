@@ -38,9 +38,6 @@ ActiveRecord::Schema.define(version: 2021_10_16_233630) do
     t.integer "question_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["question_id"], name: "index_likes_on_question_id"
-    t.index ["user_id", "question_id"], name: "index_likes_on_user_id_and_question_id", unique: true
-    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "questions", force: :cascade do |t|

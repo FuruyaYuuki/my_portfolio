@@ -1,24 +1,8 @@
 <div class="container">
   <div class="boxes">
     <% @questions.each do |question| %>
-      <div class="box">
-        <%= link_to(question.text, "/questions/#{question.id}", class: "box-text")  %>
-        <% if user_signed_in? %>
-          <% if current_user.own?(question) %> 
-            <%= link_to question_path(question), method: :delete %>
-              <%= icon 'far', 'trash-alt' %>
-            <%= link_to edit_question_path(question) %>
-            <%= icon 'far', 'edit' %>
-          <% else %>
-            <% if current_user&.like?(question) %>
-              <%= link_to like_path(current_user.likes.find_by(question: question)), method: :delete %>
-              <%= icon 'fa', 'heart' %>
-            <% else %>
-              <%= link_to likes_path(question: question), method: :post %>
-                <%= icon 'far', 'heart' %>
-            <% end %>
-          <% end %>
-        <% end %>
+      <div class="box" id="question_<%= question.id %>">
+        <%= render 'top', question: question %>
       </div>
     <% end %>
     
