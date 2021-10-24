@@ -1,8 +1,14 @@
 <%= link_to question.text, question_path(question.id), class: "box-text" %>
 <% if user_signed_in? %>
   <% if current_user.liked_by?(question.id) %> 
-    <%= link_to 'いいねを外す', destroy_like_path(question), method: :DELETE, remote: true %> <%= question.likes.count %>
+    <%= link_to destroy_like_path(question), method: :DELETE, remote: true do %>
+      <i class="fa fa-heart unlike-btn"></i>
+    <% end %>
+    <%= question.likes.count %>
   <% else %>
-    <%= link_to 'いいね', create_like_path(question), method: :POST, remote: true %> <%= question.likes.count %> 
+    <%= link_to create_like_path(question), method: :POST, remote: true do %> 
+      <i class="fa fa-heart like-btn"></i>
+    <% end %>
+    <%= question.likes.count %> 
   <% end %>
 <% end %>
