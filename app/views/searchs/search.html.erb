@@ -1,33 +1,19 @@
 <div class="container">
   <div class="boxes">
-    <div class="box">
       <% if @model == 'user' %>
         <h3>【Usersモデルの検索結果】検索ワード：<%= @text %></h3>
         <% @records.each do |record| %>
-          <%= record.nickname %><br>
+          <div class="box">
+            <%= record.nickname %><br>
+          </div>
         <% end %>
       <% else @model == 'question' %>
         <h3>【Questionsモデルの検索結果】検索ワード：<%= @text %></h3>
-        <table>
-          <thead>
-              <tr>
-                <th>本文</th>
-                <th>投稿者名</th>
-              </tr>
-          </thead>
-          <tbody id="question">
           <% @records.each do |record| %>
-            <tr>
-              <td><%= link_to(record.text, "/questions/#{record.id}", class: "box-text")  %></td>
-              <td><%= record.user.nickname %></td>
-              <% if record.user == current_user %>
-                <td><%= link_to "質問を削除", "/questions/#{record.id}", method: :delete %></td>
-              <% end %>
-            </tr>
+            <div class="box" id="question_<%= record.id %>">
+              <%= render 'search', record: record %>
+            </div>
           <% end %>
-          </tbody>
-        </table>
       <% end %>
-    </div>
   </div>
 </div>

@@ -1,5 +1,8 @@
 class LikesController < ApplicationController
-  before_action :question_params
+  before_action :question_params, only: [:create, :destroy]
+  
+  def show
+  end
   
   def create
     Like.create(user_id: current_user.id, question_id: params[:id])

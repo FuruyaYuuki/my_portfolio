@@ -1,0 +1,18 @@
+<%= link_to(record.text, "/questions/#{record.id}", class: "box-text")  %>
+<%= record.user.nickname %></td>
+<% if record.user == current_user %>
+  <%= link_to "質問を削除", "/questions/#{record.id}", method: :delete %>
+<% end %>
+<% if user_signed_in? %>
+  <% if current_user.liked_by?(record.id) %> 
+    <%= link_to destroy_like_path(record), method: :DELETE, remote: true do %>
+      <i class="fa fa-heart unlike-btn"></i>
+    <% end %>
+    <%= record.likes.count %>
+  <% else %>
+    <%= link_to create_like_path(record), method: :POST, remote: true do %> 
+      <i class="fa fa-heart like-btn"></i>
+    <% end %>
+    <%= record.likes.count %> 
+  <% end %>
+<% end %>

@@ -18,8 +18,9 @@ Rails.application.routes.draw do
   resources :answers, only: [:new, :show, :create, :edit, :update, :destroy]
   get '/search', to: 'searchs#search'
   get '/search/form', to: 'searchs#form'
-  post 'like/:id' => 'likes#create', as: 'create_like'
-  delete 'like/:id' => 'likes#destroy', as: 'destroy_like'
+  get 'likes/:id' => 'likes#show', as: 'likes'
+  post 'likes/:id' => 'likes#create', as: 'create_like'
+  delete 'likes/:id' => 'likes#destroy', as: 'destroy_like'
   
   root 'top#index'
   

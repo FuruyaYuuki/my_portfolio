@@ -8,9 +8,9 @@
       <%= link_to "いいね", likes_path(current_user.id), class: "box-text" %>
     </div>
     
-    <% current_user.questions.order(created_at: :desc).each do |question| %>
-      <div class="box" id="question_<%= question.id %>">
-        <%= render 'top/top', question: question %>
+    <% current_user.likes.order(updated_at: :desc).each do |like| %>
+      <div class="box" id="question_<%= like.question.id %>">
+        <%= render 'top/top', question: like.question %>
       </div>
     <% end %>
   </div>
