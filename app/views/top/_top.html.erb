@@ -1,14 +1,19 @@
-<%= link_to question.text, question_path(question.id), class: "box-text" %>
-<% if user_signed_in? %>
-  <% if current_user.liked_by?(question.id) %> 
-    <%= link_to destroy_like_path(question), method: :DELETE, remote: true do %>
-      <i class="fa fa-heart unlike-btn"></i>
+<h1 class="box-title"><%= link_to question.title, question_path(question.id) %></h1>
+<p class="box-text"><%= question.text %></p>
+<ul class="like-area">
+  <li class="like">
+    <% if user_signed_in? %>
+      <% if current_user.liked_by?(question.id) %> 
+        <%= link_to destroy_like_path(question), method: :DELETE, remote: true do %>
+          <i class="fa fa-heart unlike-btn"></i>
+          <%= question.likes.count %>
+        <% end %>
+      <% else %>
+        <%= link_to create_like_path(question), method: :POST, remote: true do %> 
+          <i class="fa fa-heart like-btn"></i>
+          <%= question.likes.count %> 
+        <% end %>
+      <% end %>
     <% end %>
-    <%= question.likes.count %>
-  <% else %>
-    <%= link_to create_like_path(question), method: :POST, remote: true do %> 
-      <i class="fa fa-heart like-btn"></i>
-    <% end %>
-    <%= question.likes.count %> 
-  <% end %>
-<% end %>
+  </li>
+</ul>

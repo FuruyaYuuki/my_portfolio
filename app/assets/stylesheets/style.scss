@@ -6,6 +6,10 @@ a {
   text-decoration: none;
 }
 
+ul {
+  list-style: none;
+}
+
 .container {
   width: 100%;
   text-align: center;
@@ -43,7 +47,9 @@ img {
 }
 
 .boxes {
+  width: 100%;
   display: grid;
+
   justify-content: center;
 }
 
@@ -51,12 +57,40 @@ img {
   width: 600px;
   height: 200px;
   background-color: silver;
+  padding-left: 10px;
   margin-bottom: 2px;
+  display: grid;
+  
+  align-items: center;
+}
+
+.box-title {
+  font-size: 20px;
 }
 
 .box-text {
-  font-size: 20px;
+  font-size: 15px;
 }
+
+.like {
+  left: 0;
+}
+
+// link_to area spread
+.box,
+.like-area a {
+  position: relative;
+}
+
+.box-title a:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
 
 .question-box {
   position: absolute;

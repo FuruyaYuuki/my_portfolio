@@ -1,7 +1,8 @@
 <div class="container">
   <div class="boxes">
     <div class="box">
-      <h3><%= @question.text %></h3>
+      <h3><%= @question.title %></h3>
+      <p><%= @question.text %></p>
       <p><%= @question.user.nickname %></p>
       
       <% if @question.answer %>
