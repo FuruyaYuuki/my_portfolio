@@ -7,6 +7,10 @@ class User < ApplicationRecord
   # association
   has_many :questions
   has_many :likes
+  has_one_attached :image
+  
+  # mount
+  mount_uploader :avatar, AvatarUploader
   
   #like
   def liked_by?(question_id)

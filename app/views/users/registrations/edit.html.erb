@@ -10,6 +10,11 @@
         <%= f.label :ニックネーム %><br />
         <%= f.text_field :nickname, autofocus: true %>
         </div>
+        
+        <div class="field">
+          <%= f.label :プロフィール画像 %>
+          <%= f.file_field :avatar %>
+        </div>
       
         <div class="field">
           <%= f.label :メールアドレス %><br />

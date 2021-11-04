@@ -6,5 +6,6 @@ class Admin < ApplicationRecord
          
   # association
   has_many :answers
+  has_one_attached :image
   
 end
