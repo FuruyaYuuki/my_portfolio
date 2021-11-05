@@ -22,7 +22,11 @@
         </li>
         <li class="header-item">
           <% if user_signed_in? %>
-            <%= link_to image_tag("/no-profile.png"), user_path(current_user.id), class: "margin-top" %>
+            <% if current_user.avatar.url %>
+              <%= link_to image_tag(current_user.avatar.url), user_path(current_user.id), class: "margin-top" %>
+            <% else %>
+              <%= link_to image_tag("/no-profile.png"), user_path(current_user.id), class: "margin-top" %>
+            <% end %>
           <% elsif admin_signed_in? %>
             <%= link_to image_tag("/no-profile.png"), admin_path(current_admin.id), class: "margin-top" %>
           <% else %>

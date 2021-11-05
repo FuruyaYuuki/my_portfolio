@@ -8,4 +8,7 @@ class Admin < ApplicationRecord
   has_many :answers
   has_one_attached :image
   
+  # mount
+  mount_uploader :avatar, AvatarUploader
+  
 end
