@@ -1,5 +1,11 @@
 <h1 class="box-title"><%= link_to question.title, question_path(question.id) %></h1>
 <p class="box-text"><%= question.text %></p>
+<% if question.user.avatar.url %>
+  <%= link_to image_tag(question.user.avatar.url), user_path(question.user_id), class: "margin-top" %>
+<% else %>
+  <%= link_to image_tag("/no-profile.png"), user_path(question.user_id), class: "margin-top" %>
+<% end %>
+<p class="box-text"><%= question.user.nickname %></p>
 <ul class="like-area">
   <li class="like">
     <% if user_signed_in? %>

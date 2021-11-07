@@ -2,6 +2,11 @@
   <div class="boxes">
     <div class="box">
       <h1><%= current_admin.name %></h1>
+      <% if current_admin.avatar? %>
+        <%= image_tag current_admin.avatar.url %>
+      <% else %>
+        <%= image_tag ("/no-profile.png") %>
+      <% end %>
       <%= link_to "プロフィール編集", edit_admin_registration_path, class: "box-text" %>
     </div>
     
