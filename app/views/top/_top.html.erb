@@ -1,13 +1,13 @@
-<h1 class="box-title"><%= link_to question.title, question_path(question.id) %></h1>
-<p class="box-text"><%= question.text %></p>
+<h1 class="box1"><%= link_to question.title, question_path(question.id) %></h1>
+<p class="box2"><%= question.text %></p>
 <% if question.user.avatar.url %>
-  <%= link_to image_tag(question.user.avatar.url), user_path(question.user_id), class: "margin-top" %>
+  <%= link_to image_tag(question.user.avatar.url), user_path(question.user_id), class: "box3-1" %>
 <% else %>
-  <%= link_to image_tag("/no-profile.png"), user_path(question.user_id), class: "margin-top" %>
+  <%= link_to image_tag("/no-profile.png"), user_path(question.user_id), class: "box3-1" %>
 <% end %>
-<p class="box-text"><%= question.user.nickname %></p>
-<ul class="like-area">
-  <li class="like">
+<p class="box3-2"><%= question.user.nickname %></p>
+<ul class="box4">
+  <li class="box-icon">
     <% if user_signed_in? %>
       <% if current_user.liked_by?(question.id) %> 
         <%= link_to destroy_like_path(question), method: :DELETE, remote: true do %>
@@ -19,6 +19,13 @@
           <i class="fa fa-heart like-btn"></i>
           <%= question.likes.count %> 
         <% end %>
+      <% end %>
+    <% end %>
+  </li>
+  <li class="box-icon">
+    <% if current_user.id === question.user_id%>
+      <%= link_to "/questions/#{question.id}", method: :delete do %>
+        <i class="fas fa-trash"></i>
       <% end %>
     <% end %>
   </li>
