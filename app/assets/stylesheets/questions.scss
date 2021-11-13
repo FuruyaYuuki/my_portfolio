@@ -3,3 +3,37 @@
   height: 250px;
   background-color: silver;
 }
+
+.big-box {
+  width: 600px;
+  height: 600px;
+  background-color: silver;
+  padding-left: 10px;
+  margin-bottom: 2px;
+
+  display: grid;
+  grid-template-rows: 100px 100px 100px 100px 100px 100px;
+  grid-template-columns: 35px 1fr;
+  align-items: center;
+}
+
+.box5-1 {
+  font-size: 15px;
+  
+  grid-row: 5;
+  grid-column: 1;
+}
+
+.box5-2 {
+  font-size: 15px;
+  
+  grid-row: 5;
+  grid-column: 2;
+}
+
+.box6 {
+  padding-left: 0;
+  
+  grid-row: 6;
+  grid-column: 1 / span 2;
+}

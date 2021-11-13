@@ -1,19 +1,17 @@
-<div class="container">
-  <div class="boxes">
-      <% if @model == 'user' %>
-        <h3>【Usersモデルの検索結果】検索ワード：<%= @text %></h3>
+<div class="boxes">
+    <% if @model == 'user' %>
+      <h3>【Usersモデルの検索結果】検索ワード：<%= @text %></h3>
+      <% @records.each do |record| %>
+        <div class="search-background">
+          <%= record.nickname %><br>
+        </div>
+      <% end %>
+    <% else @model == 'question' %>
+      <h3>【Questionsモデルの検索結果】検索ワード：<%= @text %></h3>
         <% @records.each do |record| %>
-          <div class="box">
-            <%= record.nickname %><br>
+          <div class="box" id="question_<%= record.id %>">
+            <%= render 'top/top', question: record %>
           </div>
         <% end %>
-      <% else @model == 'question' %>
-        <h3>【Questionsモデルの検索結果】検索ワード：<%= @text %></h3>
-          <% @records.each do |record| %>
-            <div class="box" id="question_<%= record.id %>">
-              <%= render 'search', record: record %>
-            </div>
-          <% end %>
-      <% end %>
-  </div>
+    <% end %>
 </div>

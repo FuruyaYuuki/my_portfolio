@@ -1,17 +1,19 @@
-<div class="container">
-  <div class="boxes">
-    <div class="box">
-      <h1><%= current_user.nickname %></h1>
-      <%= link_to "プロフィール編集", edit_user_registration_path, class: "box-text" %>
-      <br>
-      <%= link_to "投稿", user_path(current_user.id), class: "box-text" %>
-      <%= link_to "いいね", likes_path(current_user.id), class: "box-text" %>
-    </div>
-    
-    <% current_user.likes.order(updated_at: :desc).each do |like| %>
-      <div class="box" id="question_<%= like.question.id %>">
-        <%= render 'top/top', question: like.question %>
-      </div>
+<div class="boxes">
+  <div class="box">
+    <h1 class="box1"><%= current_user.nickname %></h1>
+    <% if current_user.avatar? %>
+      <%= image_tag current_user.avatar.url, class: "box2" %>
+    <% else %>
+      <%= image_tag ("/no-profile.png"), class: "box2" %>
     <% end %>
+    <%= link_to "投稿", user_path(current_user.id), class: "box3-1" %>
+    <%= link_to "いいね", likes_path(current_user.id), class: "box3-2" %>
+    <%= link_to "プロフィール編集", edit_user_registration_path, class: "box4" %>
   </div>
+  
+  <% current_user.likes.order(updated_at: :desc).each do |like| %>
+    <div class="box" id="question_<%= like.question.id %>">
+      <%= render 'top/top', question: like.question %>
+    </div>
+  <% end %>
 </div>

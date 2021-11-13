@@ -1,11 +1,9 @@
-<div class="container">
-  <div class="boxes">
-    <div class="box">
-      <%= form_tag(search_path, method: :get) do %>
-        <%= text_field_tag 'text' %>
-        <%= select_tag 'model', options_for_select({ "User" => "user", "Question" => "question" }) %>
-        <%= submit_tag '検索' %>
-      <% end %>
-    </div>
+<div class="boxes">
+  <div class="search-background">
+    <%= form_tag(search_path, method: :get) do %>
+      <%= text_field_tag 'text' %>
+      <%= select_tag 'model', options_for_select({ "User" => "user", "Question" => "question" }) %>
+      <%= submit_tag '検索' %>
+    <% end %>
   </div>
 </div>
