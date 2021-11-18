@@ -6,29 +6,96 @@
   <%= link_to image_tag("/no-profile.png"), user_path(question.user_id), class: "box3-1" %>
 <% end %>
 <p class="box3-2"><%= question.user.nickname %></p>
-<ul class="box4">
-  <li class="box-icon">
-    <% if user_signed_in? %>
-      <% if current_user.liked_by?(question.id) %> 
-        <%= link_to destroy_like_path(question), method: :DELETE, remote: true do %>
-          <i class="fa fa-heart unlike-btn"></i>
-          <%= question.likes.count %>
+
+<!--回答済み-->
+<% if question.answer %>
+  <ul class="box4">
+    <!--いいね機能-->
+    <li class="box-icon">
+      <% if user_signed_in? %>
+        <% if current_user.liked_by?(question.id) %> 
+          <%= link_to destroy_like_path(question), method: :DELETE, remote: true do %>
+            <i class="fa fa-heart unlike-btn"></i>
+            <%= question.likes.count %>
+          <% end %>
+        <% else %>
+          <%= link_to create_like_path(question), method: :POST, remote: true do %> 
+            <i class="fa fa-heart like-btn"></i>
+            <%= question.likes.count %> 
+          <% end %>
         <% end %>
-      <% else %>
-        <%= link_to create_like_path(question), method: :POST, remote: true do %> 
-          <i class="fa fa-heart like-btn"></i>
-          <%= question.likes.count %> 
+      <!--回答編集-->
+      <% elsif admin_signed_in? %>
+        <%= link_to edit_answer_path(question.answer) do %> 
+           <i class="fas fa-pen"></i>
+         <% end %>
+      <% end %>
+    </li>
+    <!--質問削除-->
+    <li class="box-icon">
+      <% if user_signed_in? %>
+        <% if current_user.id === question.user_id %>
+          <%= link_to "/questions/#{question.id}", method: :delete do %>
+            <i class="fas fa-trash"></i>
+          <% end %>
+        <% end %>
+      <% elsif admin_signed_in?%>
+        <%= link_to "/questions/#{question.id}", method: :delete do %>
+          <i class="fas fa-trash"></i>
         <% end %>
       <% end %>
-    <% end %>
-  </li>
-  <li class="box-icon">
-    <% if user_signed_in? %>
-      <% if current_user.id === question.user_id %>
-       <%= link_to "/questions/#{question.id}", method: :delete do %>
-         <i class="fas fa-trash"></i>
-       <% end %>
+    </li>
+    <!--回答削除-->
+    <li class="box-icon">
+      <% if admin_signed_in? %>
+        <%= link_to "回答を削除", "/answers/#{question.answer.id}", method: :delete %>
       <% end %>
-    <% end %>
-  </li>
-</ul>
+    </li>
+    <li class="box-icon">
+      <p style="margin: 0;">回答済み</p>
+    </li>
+  </ul>
+<!--管理者 回答前-->
+<% elsif admin_signed_in? %>
+  <ul class="box4">
+    <li class="box-icon">
+      <%= link_to "回答する", new_answer_path(question_id: question.id) %>
+    </li>
+    <li class="box-icon">
+      <%= link_to "/questions/#{question.id}", method: :delete do %>
+        <i class="fas fa-trash"></i>
+      <% end %>
+    </li>
+  </ul>
+<!--ユーザー回答前-->
+<% else %>  
+  <ul class="box4">
+    <li class="box-icon">
+      <% if user_signed_in? %>
+        <% if current_user.liked_by?(question.id) %> 
+          <%= link_to destroy_like_path(question), method: :DELETE, remote: true do %>
+            <i class="fa fa-heart unlike-btn"></i>
+            <%= question.likes.count %>
+          <% end %>
+        <% else %>
+          <%= link_to create_like_path(question), method: :POST, remote: true do %> 
+            <i class="fa fa-heart like-btn"></i>
+            <%= question.likes.count %> 
+          <% end %>
+        <% end %>
+      <% end %>
+    </li>
+    <li class="box-icon">
+      <% if user_signed_in? %>
+        <% if current_user.id === question.user_id %>
+          <%= link_to "/questions/#{question.id}", method: :delete do %>
+             <i class="fas fa-trash"></i>
+          <% end %>
+        <% end %>
+      <% end %>
+    </li>
+    <li class="box-icon">
+      <p style="margin: 0;">回答前</p>
+    </li>
+  </ul>
+<% end %>

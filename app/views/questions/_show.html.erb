@@ -17,8 +17,8 @@
   <% end %>
   <p class="box5-2"><%= question.answer.admin.name %></p>
   <ul class="box6">
+    <!--いいね機能-->
     <li class="box-icon">
-      <!--いいね機能-->
       <% if user_signed_in? %>
         <% if current_user.liked_by?(question.id) %> 
           <%= link_to destroy_like_path(question), method: :DELETE, remote: true do %>
@@ -90,10 +90,12 @@
       <% end %>
     </li>
     <li class="box-icon">
-      <% if current_user.id === question.user_id %>
-       <%= link_to "/questions/#{question.id}", method: :delete do %>
-         <i class="fas fa-trash"></i>
-       <% end %>
+      <% if user_signed_in? %>
+        <% if current_user.id === question.user_id %>
+          <%= link_to "/questions/#{question.id}", method: :delete do %>
+             <i class="fas fa-trash"></i>
+          <% end %>
+        <% end %>
       <% end %>
     </li>
   </ul>

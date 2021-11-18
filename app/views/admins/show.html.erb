@@ -10,8 +10,8 @@
   </div>
   
   <% current_admin.answers.order(created_at: :desc).each do |answer| %>
-    <div class="box">
-      <%= link_to(answer.text, answer_path(answer.id), class: "box2")  %>
+    <div class="box" id="question_<%= answer.question_id %>">
+      <%= render 'top/top', question: answer.question %>
     </div>
   <% end %>
 </div>
