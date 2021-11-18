@@ -1,14 +1,5 @@
-<div class="container">
-  <div class="boxes">
-    <div class="answer-background">
-      <h3><%= @answer.text %></h3>
-      <p><%= @answer.admin.name %></p>
-
-      <h3><%= @answer.question.text %></h3>
-
-      <%= link_to "質問を削除", "/questions/#{@answer.question.id}", method: :delete %>
-      <%= link_to "回答を編集", edit_answer_path(@answer) %>
-      <%= link_to "回答を削除", "/answers/#{@answer.id}", method: :delete %>
-    </div>
+<div class="boxes">
+  <div class="big-box" id="question_<%= @answer.question_id %>">
+    <%= render 'questions/show', question: @answer.question %>
   </div>
 </div>
