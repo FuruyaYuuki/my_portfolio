@@ -10,36 +10,35 @@
   </head>
   
   <body>
-    
     <header>
-    <div class="container">
-      <ul class="header-list">
-        <li class="header-item">
-          <a href="/"><img src="/hakui.png" alt="画像がありません" ></a>
-        </li>
-        <li class="header-item">
-          <%= link_to "🔎", search_form_path, class: "margin-top" %>
-        </li>
-        <li class="header-item">
-          <% if user_signed_in? %>
-            <% if current_user.avatar.url %>
-              <%= link_to image_tag(current_user.avatar.url), user_path(current_user.id), class: "margin-top" %>
+      <div class="container">
+        <ul class="header-list">
+          <li class="header-item">
+            <a href="/"><img src="/hakui.png" alt="画像がありません" ></a>
+          </li>
+          <li class="header-item">
+            <%= link_to "🔎", search_form_path, class: "margin-top" %>
+          </li>
+          <li class="header-item">
+            <% if user_signed_in? %>
+              <% if current_user.avatar.url %>
+                <%= link_to image_tag(current_user.avatar.url), user_path(current_user.id), class: "margin-top" %>
+              <% else %>
+                <%= link_to image_tag("/no-profile.png"), user_path(current_user.id), class: "margin-top" %>
+              <% end %>
+            <% elsif admin_signed_in? %>
+              <% if current_admin.avatar.url %>
+                <%= link_to image_tag(current_admin.avatar.url), admin_path(current_admin.id), class: "margin-top" %>
+              <% else %>
+                <%= link_to image_tag("/no-profile.png"), admin_path(current_admin.id), class: "margin-top" %>
+              <% end %>
             <% else %>
-              <%= link_to image_tag("/no-profile.png"), user_path(current_user.id), class: "margin-top" %>
+              <%= link_to "ログイン", new_user_session_path, class: "margin-top" %>
+              <%= link_to "管理者ログイン", new_admin_session_path, class: "margin-top" %>
             <% end %>
-          <% elsif admin_signed_in? %>
-            <% if current_admin.avatar.url %>
-              <%= link_to image_tag(current_admin.avatar.url), admin_path(current_admin.id), class: "margin-top" %>
-            <% else %>
-              <%= link_to image_tag("/no-profile.png"), admin_path(current_admin.id), class: "margin-top" %>
-            <% end %>
-          <% else %>
-            <%= link_to "ログイン", new_user_session_path, class: "margin-top" %>
-            <%= link_to "管理者ログイン", new_admin_session_path, class: "margin-top" %>
-          <% end %>
-        </li>
-      </ul>
-    </div>
+          </li>
+        </ul>
+      </div>
     </header>
     
     <%= yield %>

@@ -1,15 +1,15 @@
 <div class="boxes">
   <div class="box">
-    <h1 class="box1"><%= current_admin.name %></h1>
-    <% if current_admin.avatar? %>
-      <%= image_tag current_admin.avatar.url, class: "box2" %>
+    <h1 class="box1"><%= @admin.name %></h1>
+    <% if @admin.avatar? %>
+      <%= image_tag @admin.avatar.url, class: "box2" %>
     <% else %>
       <%= image_tag ("/no-profile.png"), class: "box2" %>
     <% end %>
     <%= link_to "プロフィール編集", edit_admin_registration_path, class: "box4" %>
   </div>
   
-  <% current_admin.answers.order(created_at: :desc).each do |answer| %>
+  <% @admin.answers.order(created_at: :desc).each do |answer| %>
     <div class="box" id="question_<%= answer.question_id %>">
       <%= render 'top/top', question: answer.question %>
     </div>

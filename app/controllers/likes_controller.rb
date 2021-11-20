@@ -2,6 +2,7 @@ class LikesController < ApplicationController
   before_action :question_params, only: [:create, :destroy]
   
   def show
+    @user = User.find(params[:id])
   end
   
   def create

@@ -1,17 +1,17 @@
 <div class="boxes">
   <div class="box">
-    <h1 class="box1"><%= current_user.nickname %></h1>
-    <% if current_user.avatar? %>
-      <%= image_tag current_user.avatar.url, class: "box2" %>
+    <h1 class="box1"><%= @user.nickname %></h1>
+    <% if @user.avatar? %>
+      <%= image_tag @user.avatar.url, class: "box2" %>
     <% else %>
       <%= image_tag ("/no-profile.png"), class: "box2" %>
     <% end %>
-    <%= link_to "投稿", user_path(current_user.id), class: "box3-1" %>
-    <%= link_to "いいね", likes_path(current_user.id), class: "box3-2" %>
+    <%= link_to "投稿", user_path(@user.id), class: "box3-1" %>
+    <%= link_to "いいね", likes_path(@user.id), class: "box3-2" %>
     <%= link_to "プロフィール編集", edit_user_registration_path, class: "box4" %>
   </div>
   
-  <% current_user.questions.order(created_at: :desc).each do |question| %>
+  <% @user.questions.order(created_at: :desc).each do |question| %>
     <div class="box" id="question_<%= question.id %>">
       <%= render 'top/top', question: question %>
     </div>

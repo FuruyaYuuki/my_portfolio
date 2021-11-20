@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  padding-top: 50px;
 }
 
 a {
@@ -18,6 +19,11 @@ ul {
 header {
   background-color: rgb(80, 77, 77);
   height: 50px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
 
 .header-list {
@@ -49,8 +55,8 @@ img {
 
 .boxes {
   width: 100%;
+  
   display: grid;
-
   justify-content: center;
 }
 
@@ -131,16 +137,11 @@ img {
   left: 0;
 }
 
-
 .question-box {
-  position: absolute;
+  position: fixed;
   bottom: 100px;
   right: 170px;
   font-size: 30px;
-}
-
-.question {
-  
 }
 
 .question-label {
@@ -148,14 +149,10 @@ img {
 }
 
 .signup-box {
-  position: absolute;
+  position: fixed;
   bottom: 100px;
   left: 170px;
   font-size: 30px;
-}
-
-.signup {
-  
 }
 
 .footer {
@@ -167,4 +164,3 @@ img {
   margin: 0;
   padding-top: 12px;
 }
-
