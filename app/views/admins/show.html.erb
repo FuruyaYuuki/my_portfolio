@@ -6,7 +6,10 @@
     <% else %>
       <%= image_tag ("/no-profile.png"), class: "box2" %>
     <% end %>
-    <%= link_to "プロフィール編集", edit_admin_registration_path, class: "box4" %>
+    <%= link_to "回答", admin_path(@admin.id), class: "box3-1" %>
+    <% if @admin === current_user || current_admin %>
+      <%= link_to "プロフィール編集", edit_admin_registration_path, class: "box4" %>
+    <% end %>
   </div>
   
   <% @admin.answers.order(created_at: :desc).each do |answer| %>
