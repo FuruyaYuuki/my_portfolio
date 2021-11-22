@@ -3,7 +3,14 @@
       <h3>【Usersモデルの検索結果】検索ワード：<%= @text %></h3>
       <% @records.each do |record| %>
         <div class="search-background">
-          <%= record.nickname %><br>
+          <div style="display: flex">
+            <% if record.avatar.url %>
+              <%= link_to image_tag(record.avatar.url), user_path(record.id), class: "search-image" %>
+            <% else %>
+              <%= link_to image_tag("/no-profile.png"), user_path(record.id), class: "search-image" %>
+            <% end %>
+            <p><%= record.nickname %></p>
+          </div>
         </div>
       <% end %>
     <% else @model == 'question' %>
