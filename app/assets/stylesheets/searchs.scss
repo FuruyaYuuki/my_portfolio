@@ -34,3 +34,17 @@
   padding-top: 10px; 
   margin-right: 10px;
 }
+
+// スマートフォン
+@media only screen and (max-width:599px) {
+  .search-background {
+    width: 375px;
+  }
+}
+
+// タブレット
+@media only screen and (min-width:600px) and (max-width:1024px) {
+  .search-background {
+    width: 768px;
+  }
+}

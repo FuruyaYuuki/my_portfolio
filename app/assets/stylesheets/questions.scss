@@ -37,3 +37,23 @@
   grid-row: 6;
   grid-column: 1 / span 2;
 }
+
+// スマートフォン
+@media only screen and (max-width:599px) {
+  .big-box {
+    width: 375px;
+  }
+  .question-background {
+    width: 375px;
+  }
+}
+
+// タブレット
+@media only screen and (min-width:600px) and (max-width:1024px) {
+  .big-box {
+    width: 768px;
+  }
+  .question-background {
+    width: 768px;
+  }
+}

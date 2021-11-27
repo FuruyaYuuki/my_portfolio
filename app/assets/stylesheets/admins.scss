@@ -3,3 +3,16 @@
   height: 500px;
   background-color: silver;
 }
+// スマートフォン
+@media only screen and (max-width:599px) {
+  .admin-background {
+    width: 375px;
+  }
+}
+
+// タブレット
+@media only screen and (min-width:600px) and (max-width:1024px) {
+  .admin-background {
+    width: 768px;
+  }
+}
