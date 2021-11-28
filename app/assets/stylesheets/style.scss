@@ -160,14 +160,19 @@ header {
     grid-template-rows: 75px 75px 75px 75px;
   }
   .question-box {
-    bottom: 690px;
-    right: 20px;
+    width: 100%;
+    top: 10%;
+    bottom: 0;
+    right: 0;
+    left: 67%;
     font-size: 20px;
   }
   
   .signup-box {
-    bottom: 730px;
-    left: 270px;
+    width: 100%;
+    top: 15%;
+    bottom: 0;
+    left: 67%;
     font-size: 20px;
   }
 }
@@ -183,5 +188,20 @@ header {
     padding-left: 10px;
     margin-bottom: 2px;
     grid-template-rows: 75px 75px 75px 75px;
+  }
+  .question-box {
+    width: 100%;
+    top: 10%;
+    bottom: 0;
+    right: 0;
+    left: 75%;
+    font-size: 30px;
+  }
+  .signup-box {
+    width: 100%;
+    top: 15%;
+    bottom: 0;
+    left: 75%;
+    font-size: 30px;
   }
 }
