@@ -12,7 +12,7 @@
   margin-bottom: 2px;
 
   display: grid;
-  grid-template-rows: 100px 100px 100px 100px 100px 100px;
+  grid-template-rows: 17% 17% 17% 17% 17% 17%;
   grid-template-columns: 35px 1fr;
   align-items: center;
 }
@@ -39,21 +39,26 @@
 }
 
 // スマートフォン
-@media only screen and (max-width:599px) {
+
+@media only screen and (max-width:400px) {
   .big-box {
-    width: 375px;
+    width: 300px;
   }
   .question-background {
     width: 375px;
+  }
+}
+@media only screen and (min-width:401px) and (max-width:767px) {
+  .big-box {
+    width: 400px;
+  }
+  .question-background {
+    width: 400px;
   }
 }
 
 // タブレット
-@media only screen and (min-width:600px) and (max-width:1024px) {
-  .big-box {
-    width: 768px;
-  }
-  .question-background {
-    width: 768px;
-  }
+@media only screen and (min-width:768px) and (max-width:1023px) {
+
 }
+
