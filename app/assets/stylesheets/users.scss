@@ -3,17 +3,18 @@
   height: 500px;
   background-color: silver;
 }
-
 // スマートフォン
-@media only screen and (max-width:599px) {
+@media only screen and (max-width:400px) {
   .user-background {
-    width: 375px;
+    width: 300px;
   }
 }
-
-// タブレット
-@media only screen and (min-width:600px) and (max-width:1024px) {
+@media only screen and (min-width:401px) and (max-width:767px) {
   .user-background {
-    width: 768px;
+    width: 400px;
   }
+}
+// タブレット
+@media only screen and (min-width:768px) and (max-width:1023px) {
+
 }

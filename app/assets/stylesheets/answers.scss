@@ -39,15 +39,19 @@
 }
 
 // スマートフォン
-@media only screen and (max-width:599px) {
+@media only screen and (max-width:400px) {
   .answer-background {
-    width: 375px;
+    width: 300px;
+    height: 300px;
   }
 }
-
-// タブレット
-@media only screen and (min-width:600px) and (max-width:1024px) {
+@media only screen and (min-width:401px) and (max-width:767px) {
   .answer-background {
-    width: 768px;
+    width: 400px;
+    height: 300px;
   }
+}
+// タブレット
+@media only screen and (min-width:768px) and (max-width:1023px) {
+
 }
