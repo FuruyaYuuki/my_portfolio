@@ -24,13 +24,15 @@
   - 検索機能 ※User、Question
   - ユーザーの投稿、いいね閲覧機能
   - いいね機能(Ajax)
-  - プロフィール画像投稿機能(MiniMagick, Carrierwave) ※Herokuを利用しているため、再起動時に画像ファイルは消えます
+  - プロフィール画像投稿機能(MiniMagick, Carrierwave) ※Heroku(Freeプラン)を利用おり、再起動時に画像ファイルが消えます
 
 - 管理者機能
   - 回答機能 ※編集、削除、質問削除可
   - ログイン機能(devise) 
   - 検索機能 ※User、Question
   - ユーザーの投稿、いいね閲覧機能
-  - プロフィール画像投稿機能(MiniMagick, Carrierwave) ※Herokuを利用しているため、再起動時に画像ファイルは消えます
+  - プロフィール画像投稿機能(MiniMagick, Carrierwave) ※Heroku(Freeプラン)を利用しており、再起動時に画像ファイルが消えます
 
 ## 工夫した点
+
+- 
