@@ -20,5 +20,18 @@
             <%= render 'top/top', question: record %>
           </div>
         <% end %>
+        <h1>再生リスト検索結果</h1>
+        <% @tracks.each do |track| %>
+          <img src="<%= track.album.images.first["url"] %>" width="300" height="300" class="block">
+          <h3 class="text-light"><%= track.artists[0].name %></h3>
+          <iframe class="iframe-song" src="<%= track.preview_url %>">
+        <% end %>
+        <!--<% if @tracks.present? %>-->
+        <!--  <% @tracks.each do |music| %>-->
+        <!--    <p><%= music.name %></p>-->
+        <!--  <% end %>-->
+        <!--<% else %>-->
+        <!--<h1>ありません</h1>-->
+        <!--<% end %>-->
     <% end %>
 </div>

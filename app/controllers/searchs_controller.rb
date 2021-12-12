@@ -6,13 +6,12 @@ class SearchsController < ApplicationController
     @model = params["model"]
     @text = params["text"]
     @records = search_for(@model, @text)
+    if params[:text].present?
+      @tracks = RSpotify::Track.search(params[:text]).first(5)
+    end
   end
   
   def show
-    @musics = Music.all
-    if params[:search].present?
-      @searchartists = RSpotify::Artist.search(params[:search])
-    end
   end
   
   private

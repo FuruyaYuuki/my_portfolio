@@ -5,10 +5,6 @@
     </div>
   <% end %>
   
-  <div>
-    <%= link_to "音楽検索", search_show_path %>
-  </div>
-  
   <div class="signup-box">
     <% if user_signed_in? %>
       <%= link_to "ログアウト", destroy_user_session_path %>
