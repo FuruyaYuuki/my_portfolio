@@ -3,9 +3,9 @@
     <div class="question-background">
       <h1>質問する</h1>
       <%= form_with model: @question do |f| %>
-        <%= f.text_area :title, placeholder: "例：生活リズムについて", size: "33x1", maxlength: "20"%>
+        <%= f.text_area :title, placeholder: "例：生活リズムについて(20文字以内)", size: "33x1", maxlength: "20"%>
         <br>
-        <%= f.text_area :text, placeholder: "例：生活リズムを治すにはどうしたらいいですか？", size: "33x5", maxlength: "100"%>
+        <%= f.text_area :text, placeholder: "例：生活リズムを治すにはどうしたらいいですか？(100文字以内)", size: "33x5", maxlength: "100"%>
         <br>
         <%= f.submit "質問する" %>
       <% end %>

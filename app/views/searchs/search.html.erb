@@ -1,6 +1,6 @@
 <div class="boxes">
     <% if @model == 'user' %>
-      <h3>【Usersモデルの検索結果】検索ワード：<%= @text %></h3>
+      <h3>【Userの検索結果】検索ワード：<%= @text %></h3>
         <% @records.each do |record| %>
           <div class="search-background">
             <div style="display: flex">
@@ -14,17 +14,20 @@
           </div>
         <% end %>
     <% else @model == 'question' %>
-      <h3>【Questionsモデルの検索結果】検索ワード：<%= @text %></h3>
+      <h3>【Questionの検索結果】検索ワード：<%= @text %></h3>
         <% @records.each do |record| %>
           <div class="box" id="question_<%= record.id %>">
             <%= render 'top/top', question: record %>
           </div>
         <% end %>
-        <h1>再生リスト検索結果</h1>
+      <h3>曲名検索結果</h3>
         <% @tracks.each do |track| %>
-          <img src="<%= track.album.images.first["url"] %>" width="300" height="300" class="block">
-          <h3 class="text-light"><%= track.artists[0].name %></h3>
-          <iframe class="iframe-song" src="<%= track.preview_url %>">
+          <div class="box">
+            <h3 class="box1"><%= track.name %></h3>
+            <img src="<%= track.album.images.first["url"] %>" class="box3-1">
+            <h3 class="box3-2"><%= track.artists[0].name %></h3>
+            <iframe src="<%= track.preview_url %>" class="box2" style="width: 150px; height: 58px;">
+          </div>
         <% end %>
         <!--<% if @tracks.present? %>-->
         <!--  <% @tracks.each do |music| %>-->
