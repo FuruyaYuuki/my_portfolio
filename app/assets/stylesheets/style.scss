@@ -36,16 +36,36 @@ header {
   grid-template-columns: 33% 33% 33%;
   justify-content: center;
 }
-
-.header-item a {
+.header-item{
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+}
+.header-item a{
   font-size: 13px;
   transition: all 0.5s;
+  margin:0;
+  padding:0;
 }
-
 .header-item a:hover {
   color: rgba(255, 255, 255, 0.973);
 }
-
+.description {
+    display: none;
+    position: absolute;
+    padding: 10px;
+    font-size: 12px;
+    line-height: 1.6em;
+    color: #fff;
+    border-radius: 5px;
+    background: #000;
+    width: 100px;
+}
+.header-item:hover .description{
+    display: inline-block;
+    top: 0px;
+    left: 80px;
+}
 .boxes {
   width: 100%;
   
