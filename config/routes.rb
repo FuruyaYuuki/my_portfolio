@@ -18,9 +18,12 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   resources :admins, only: [:show]
   resources :answers, only: [:new, :show, :create, :edit, :update, :destroy]
+  
+  # search controller
   get '/search', to: 'searchs#search'
   get '/search/form', to: 'searchs#form'
-  get '/search/show', to: 'searchs#show'
+  
+  # like controller
   get 'likes/:id' => 'likes#show', as: 'likes'
   post 'likes/:id' => 'likes#create', as: 'create_like'
   delete 'likes/:id' => 'likes#destroy', as: 'destroy_like'
