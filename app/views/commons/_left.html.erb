@@ -1,0 +1,8 @@
+<% users.each do |user| %>
+  <% if user.avatar.url %>
+    <%= link_to image_tag(user.avatar.url), user_path(user.id), class: "" %>
+  <% else %>
+    <%= link_to image_tag("/no-profile.png"), user_path(user.id), class: "" %>
+  <% end %>
+  <p class=""><%= user.nickname %></p>
+<% end %>

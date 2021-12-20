@@ -4,20 +4,21 @@
       <%= render 'top', question: question %>
     </div>
   <% end %>
-  
-  <div class="signup-box">
-    <% if user_signed_in? %>
-      <%= link_to "ログアウト", destroy_user_session_path %>
-    <% elsif admin_signed_in? %>
-      <%= link_to "ログアウト", destroy_admin_session_path %>
-    <% else %>
-      <%= link_to "新規登録", new_user_registration_path %>
-    <% end %>
-  </div>
-  
-  <div class="question-box">
-    <% if user_signed_in? %>
-      <%= link_to "質問する", new_question_path, class: "question" %>
-    <% end %>
-  </div>
 </div>
+
+<div class="signup-box">
+  <% if user_signed_in? %>
+    <%= link_to "ログアウト", destroy_user_session_path %>
+  <% elsif admin_signed_in? %>
+    <%= link_to "ログアウト", destroy_admin_session_path %>
+  <% else %>
+    <%= link_to "新規登録", new_user_registration_path %>
+  <% end %>
+</div>
+
+<div class="question-box">
+  <% if user_signed_in? %>
+    <%= link_to "質問する", new_question_path, class: "question" %>
+  <% end %>
+</div>
+
