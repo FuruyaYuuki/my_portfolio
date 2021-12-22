@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+  
   <head>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>Opc</title>
@@ -11,50 +12,23 @@
   </head>
   
   <body>
+    
     <header>
-      <div class="container">
-        <ul class="header-list">
-          <li class="header-item">
-            <a href="/"><img src="/hakui.png" alt="画像がありません" style="width: 20px;" ></a>
-            <div class="description">ホームに戻る</div>
-          </li>
-          <li class="header-item">
-            <%= link_to search_form_path do %>
-              <i class="fas fa-search" style="color: white"></i>
-            <% end %>
-            <div class="description">Question, Music, Userを検索</div>
-          </li>
-          <li class="header-item">
-            <% if user_signed_in? %>
-              <% if current_user.avatar.url %>
-                <%= link_to image_tag(current_user.avatar.url), user_path(current_user.id) %>
-                <div class="description">プロフィール画面へ</div>
-              <% else %>
-                <%= link_to image_tag("/no-profile.png"), user_path(current_user.id) %>
-                <div class="description">プロフィール画面へ</div>
-              <% end %>
-            <% elsif admin_signed_in? %>
-              <% if current_admin.avatar.url %>
-                <%= link_to image_tag(current_admin.avatar.url), admin_path(current_admin.id) %>
-                <div class="description">プロフィール画面へ</div>
-              <% else %>
-                <%= link_to image_tag("/no-profile.png"), admin_path(current_admin.id) %>
-                <div class="description">プロフィール画面へ</div>
-              <% end %>
-            <% else %>
-              <%= link_to "ログイン", new_user_session_path, style: "color: white;" %>
-              <br>
-              <%= link_to "管理者ログイン", new_admin_session_path, style: "color: white;" %>
-            <% end %>
-          </li>
-        </ul>
-      </div>
+      <%= render 'commons/header' %>
     </header>
     
-    <div class="left-content">
-      <%= render 'commons/left', users: User.all %>
+    <div class="content">
+      <div class="left">
+        <%= render 'commons/left', playlists: RSpotify::Playlist.search('はげまして', limit: 5) %>
+      </div>
+      <div class="center">
+        <%= yield %>
+      </div>
+      <div class="right">
+        <%= render 'commons/right', users: User.all.first(5) %>
+      </div>
     </div>
     
-    <%= yield %>
   </body>
+  
 </html>
