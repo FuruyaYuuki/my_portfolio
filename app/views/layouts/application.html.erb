@@ -21,11 +21,12 @@
       <div class="left">
         <%= render 'commons/left', playlists: RSpotify::Playlist.search('はげまして', limit: 5) %>
       </div>
-      <div class="center">
-        <%= yield %>
-      </div>
       <div class="right">
         <%= render 'commons/right', users: User.all.first(5) %>
+      </div>
+      <!--// 子要素でyieldを真ん中にするとページによってレイアウト崩れるため-->
+      <div class="center">
+        <%= yield %>
       </div>
     </div>
     

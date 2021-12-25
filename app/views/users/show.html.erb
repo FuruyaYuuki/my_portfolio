@@ -8,7 +8,7 @@
     <% end %>
     <%= link_to "投稿", user_path(@user.id), class: "box3-1" %>
     <%= link_to "いいね", likes_path(@user.id), class: "box3-2" %>
-    <% if @user === current_user || current_admin %>
+    <% if current_user || current_admin === @user %>
       <%= link_to "プロフィール編集", edit_user_registration_path, class: "box4" %>
     <% end %>
   </div>

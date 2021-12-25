@@ -1,4 +1,7 @@
 // 再生リスト
+.playlist {
+  position: fixed;
+}
 .playlist-box {
   display: grid;
   grid-template-rows: 25% 25% 25% 25%;
@@ -32,6 +35,7 @@
   height: 400px;
   background-color: #EEEEEE;
   border-radius: 5px;
+  position: fixed;
 }
 .user-box {
   display: grid;

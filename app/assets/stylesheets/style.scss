@@ -19,11 +19,11 @@ img {
 
 // application.html.erb
 body {
-  margin: 0;
+  margin: 0 auto;
   min-height: 100vh;
-  display: flex;
-  flex-direction: culumn;
   padding-top: 47px;
+  line-height: 10px;
+  font-size: 13px;
 }
 header {
   background-color: rgb(80, 77, 77);
@@ -71,31 +71,35 @@ header {
 }
 .content {
   display: flex;
-  flex: 1;
-}
-.center {
-  flex: 1;
 }
 .left {
   width: 500px;
   padding-top: 10px;
   display: grid;
-  justify-content: center;
+  justify-items: center;
+}
+.center {
+  flex: 1;
+  // 子要素でyieldを真ん中にするとページによってレイアウトが崩れるため
+  order: 1;
 }
 .right {
   width: 500px;
   padding-top: 10px;
   display: grid;
-  justify-content: center;
+  justify-items: center;
+  // 子要素でyieldを真ん中にするとページによってレイアウトが崩れるため
+  order: 2;
 }
 
 // top.html.erb
 .boxes {
   width: 100%;
   display: grid;
-  justify-content: center;
+  justify-items: center;
 }
 .box {
+  width: 100%;
   height: 200px;
   background-color: silver;
   padding-left: 10px;
@@ -151,12 +155,6 @@ header {
   right: 0;
   bottom: 0;
   left: 0;
-}
-.left-content {
-  position: fixed;
-  bottom: 100px;
-  left: 170px;
-  font-size: 30px;
 }
 .question-box {
   position: fixed;

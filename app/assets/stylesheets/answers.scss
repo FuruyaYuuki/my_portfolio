@@ -4,19 +4,6 @@
   background-color: silver;
 }
 
-.big-box {
-  width: 600px;
-  height: 600px;
-  background-color: silver;
-  padding-left: 10px;
-  margin-bottom: 2px;
-
-  display: grid;
-  grid-template-rows: 100px 100px 100px 100px 100px 100px;
-  grid-template-columns: 35px 1fr;
-  align-items: center;
-}
-
 .box5-1 {
   font-size: 15px;
   

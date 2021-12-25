@@ -7,7 +7,7 @@
       <%= image_tag ("/no-profile.png"), class: "box2" %>
     <% end %>
     <%= link_to "回答", admin_path(@admin.id), class: "box3-1" %>
-    <% if @admin === current_user || current_admin %>
+    <% if current_user || current_admin === @admin %>
       <%= link_to "プロフィール編集", edit_admin_registration_path, class: "box4" %>
     <% end %>
   </div>
