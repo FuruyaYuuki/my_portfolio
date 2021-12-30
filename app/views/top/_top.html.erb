@@ -1,7 +1,7 @@
 <h1 class="box1"><%= link_to question.title, question_path(question.id) %></h1>
 <p class="box2"><%= question.text %></p>
-<% if question.user.avatar.url %>
-  <%= link_to image_tag(question.user.avatar.url), user_path(question.user_id), class: "box3-1" %>
+<% if question.user.avatar.attached? %>
+  <%= link_to image_tag(question.user.avatar), user_path(question.user_id), class: "box3-1" %>
 <% else %>
   <%= link_to image_tag("/no-profile.png"), user_path(question.user_id), class: "box3-1" %>
 <% end %>

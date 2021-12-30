@@ -1,8 +1,8 @@
 <div class="boxes">
   <div class="box">
     <h1 class="box1"><%= @user.nickname %></h1>
-    <% if @user.avatar? %>
-      <%= image_tag @user.avatar.url, class: "box2" %>
+    <% if @user.avatar.attached? %>
+      <%= image_tag @user.avatar, class: "box2" %>
     <% else %>
       <%= image_tag ("/no-profile.png"), class: "box2" %>
     <% end %>

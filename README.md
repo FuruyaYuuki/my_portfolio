@@ -24,14 +24,14 @@
   - 検索機能 ※User、Question
   - いいね機能(Ajax)
   - ユーザーの投稿、いいね閲覧機能
-  - プロフィール画像投稿機能(MiniMagick, Carrierwave, Active Storage, S3) 
+  - プロフィール画像投稿機能(Active Storage, S3, MiniMagick) 
 
 - 管理者機能
   - 回答機能 ※編集、削除、質問削除可
   - ログイン機能(devise) 
   - 検索機能 ※User、Question
   - ユーザーの投稿、いいね閲覧機能
-  - プロフィール画像投稿機能(MiniMagick, Carrierwave, Active Storage, S3) 
+  - プロフィール画像投稿機能(Active Storage, S3, MiniMagick) 
 
 ## 注力した点
 

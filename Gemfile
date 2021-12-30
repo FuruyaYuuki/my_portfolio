@@ -37,9 +37,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # origin
 gem 'devise'
 gem 'font-awesome-sass'
-gem 'mini_magick'
-gem 'image_processing', '~> 1.2'
-gem 'carrierwave'
 gem 'rspotify'
 gem 'dotenv-rails'
 gem "aws-sdk-s3", require: false

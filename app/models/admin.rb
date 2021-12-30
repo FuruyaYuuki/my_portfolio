@@ -6,10 +6,7 @@ class Admin < ApplicationRecord
          
   # association
   has_many :answers
-  has_one_attached :image
-  
-  # mount
-  mount_uploader :avatar, AvatarUploader
+  has_one_attached :avatar
   
   # update_without_current_password
   def update_without_current_password(params, *options)
