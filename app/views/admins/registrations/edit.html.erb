@@ -12,7 +12,7 @@
         </div>
         
         <div class="field">
-          <%= f.label :プロフィール画像 %>
+          <%= f.label :プロフィール画像, style: "line-height: 20px" %>
           <%= f.file_field :avatar %>
         </div>
       
@@ -26,8 +26,8 @@
         <% end %>
       
         <div class="field">
-          <%= f.label :パスワード %> <i>(変更したくない場合は空白のまま)</i><br />
-          <%= f.password_field :password, autocomplete: "new-password" %>
+          <%= f.label :パスワード, style: "line-height: 20px" %> <i>(変更したくない場合は空白のまま)</i><br />
+          <%= f.password_field :password, autocomplete: "new-password", style: "margin-bottom: 5px;" %>
           <% if @minimum_password_length %>
             <br />
             <em><%= @minimum_password_length %> 字以上</em>
