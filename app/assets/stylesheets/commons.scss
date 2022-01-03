@@ -1,3 +1,40 @@
+// ヘッダー
+.header-list {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  justify-content: center;
+}
+.header-item{
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+}
+.header-item a{
+  font-size: 13px;
+  transition: all 0.5s;
+  margin:0;
+  padding:0;
+}
+.header-item a:hover {
+  color: rgba(255, 255, 255, 0.973);
+}
+.description {
+    display: none;
+    position: absolute;
+    padding: 10px;
+    font-size: 12px;
+    line-height: 1.6em;
+    color: #fff;
+    border-radius: 5px;
+    background: #000;
+    width: 100px;
+}
+.header-item:hover .description{
+    display: inline-block;
+    top: 0px;
+    left: 80px;
+}
+
 // 再生リスト
 .playlist {
   position: fixed;
@@ -48,4 +85,24 @@
 .user-name {
   font-size: 20px;
   grid-column: 2;
+}
+
+// スマートフォン
+@media only screen and (max-width:400px) {
+  .header-list {
+    margin-top: 1%;
+  }
+  .header-item a {
+    font-size: 10px;
+  }
+}
+@media only screen and (min-width:401px) and (max-width:767px) {
+  .header-list {
+    margin-top: 2%;
+  }
+}
+
+// タブレット
+@media only screen and (min-width:768px) and (max-width:1023px) {
+
 }
