@@ -1,5 +1,6 @@
 // initial state
 a {
+  color: black;
   text-decoration: none;
 }
 
@@ -54,6 +55,14 @@ header {
   justify-items: center;
   // 子要素でyieldを真ん中にするとページによってレイアウトが崩れるため
   order: 2;
+}
+footer {
+  background-color: rgb(80, 77, 77);
+  height: 7%;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  z-index: 1;
 }
 
 // top.html.erb
@@ -135,6 +144,10 @@ header {
 
 // スマートフォン
 @media only screen and (max-width:400px) {
+  body {
+    padding-top: 40px;
+    padding-bottom: 38px;
+  }
   header {
     height: 7%;
   }
@@ -168,6 +181,7 @@ header {
 @media only screen and (min-width:401px) and (max-width:767px) {
   body {
     padding-top: 50px;
+    padding-bottom: 50px;
   }
   header {
     height: 7%;
@@ -205,6 +219,7 @@ header {
 @media only screen and (min-width:768px) and (max-width:1023px) {
   body {
     padding-top: 70px;
+    padding-bottom: 70px;
   }
   header {
     height: 7%;

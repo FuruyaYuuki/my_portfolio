@@ -1,36 +1,8 @@
 <div class="container">
   <ul class="footer-list">
-    <li class="header-item">
-      <a href="/"><img src="/hakui.png" alt="画像がありません" style="width: 20px;" ></a>
-      <div class="description">ホームに戻る</div>
-    </li>
-    <li class="header-item">
-      <%= link_to search_form_path do %>
-        <i class="fas fa-search" style="color: white"></i>
-      <% end %>
-      <div class="description">Question, Music, Userを検索</div>
-    </li>
-    <li class="header-item">
-      <% if user_signed_in? %>
-        <% if current_user.avatar.attached? %>
-          <%= link_to image_tag(current_user.avatar), user_path(current_user.id) %>
-          <div class="description">プロフィール画面へ</div>
-        <% else %>
-          <%= link_to image_tag("/no-profile.png"), user_path(current_user.id) %>
-          <div class="description">プロフィール画面へ</div>
-        <% end %>
-      <% elsif admin_signed_in? %>
-        <% if current_admin.avatar.attached? %>
-          <%= link_to image_tag(current_admin.avatar), admin_path(current_admin.id) %>
-          <div class="description">プロフィール画面へ</div>
-        <% else %>
-          <%= link_to image_tag("/no-profile.png"), admin_path(current_admin.id) %>
-          <div class="description">プロフィール画面へ</div>
-        <% end %>
-      <% else %>
-        <%= link_to "ログイン", new_user_session_path, style: "color: white;" %>
-        <br>
-        <%= link_to "管理者ログイン", new_admin_session_path, style: "color: white;" %>
+    <li class="footer-item">
+      <%= link_to playlists_path do %>
+        <i class="fas fa-music" style="color: white"></i>
       <% end %>
     </li>
   </ul>

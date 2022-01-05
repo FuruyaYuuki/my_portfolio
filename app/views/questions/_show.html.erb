@@ -10,8 +10,8 @@
 <!--回答済み-->
 <% if question.answer %>
   <p class="box4"><%= question.answer.text %></p>
-  <% if question.answer.admin.avatar.url %>
-    <%= link_to image_tag(question.answer.admin.avatar.url), admin_path(question.answer.admin_id), class: "box5-1" %>
+  <% if question.answer.admin.avatar.attached? %>
+    <%= link_to image_tag(question.answer.admin.avatar), admin_path(question.answer.admin_id), class: "box5-1" %>
   <% else %>
     <%= link_to image_tag("/no-profile.png"), admin_path(question.answer.admin_id), class: "box5-1" %>
   <% end %>

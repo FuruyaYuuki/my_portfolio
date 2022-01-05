@@ -27,12 +27,38 @@
     color: #fff;
     border-radius: 5px;
     background: #000;
-    width: 100px;
+    width: 100%;
 }
 .header-item:hover .description{
     display: inline-block;
     top: 0px;
     left: 80px;
+}
+
+// フッター
+.footer-list {
+  display: grid;
+  grid-template-columns: 100%;
+  justify-content: center;
+}
+.footer-item{
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+}
+.footer-item a{
+  font-size: 13px;
+  transition: all 0.5s;
+  margin:0;
+  padding:0;
+}
+.footer-item a:hover {
+  color: rgba(255, 255, 255, 0.973);
+}
+.footer-item:hover .description{
+  display: inline-block;
+  top: 0px;
+  left: 80px;
 }
 
 // 再生リスト
@@ -104,5 +130,9 @@
 
 // タブレット
 @media only screen and (min-width:768px) and (max-width:1023px) {
-
+  .header-item:hover .description{
+    display: inline-block;
+    top: 0px;
+    left: 150px;
+}
 }
