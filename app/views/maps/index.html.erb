@@ -1,0 +1,86 @@
+<div class="boxes">
+  <div class="map-background">
+    <h2>近くの心療内科</h2>
+    
+    <!--<input id="address" type="textbox" value="GeekSalon">-->
+    <!--<input type="button" value="Encode" onclick="codeAddress()">-->
+    
+    <div id='map' style="height: 600px; width: 600px;"></div>
+    
+    <script>
+      // 現在地取得処理
+      function initMap() {
+        // Geolocation APIに対応している
+        if (navigator.geolocation) {
+          // 現在地を取得
+          navigator.geolocation.getCurrentPosition(
+            // 取得成功した場合
+            function(position) {
+              // 緯度・経度を変数に格納
+              var mapLatLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+              // マップオプションを変数に格納
+              var mapOptions = {
+                zoom : 15,
+                center : mapLatLng
+              };
+              // マップオブジェクト作成
+              var map = new google.maps.Map(
+                document.getElementById("map"),
+                mapOptions
+              );
+              // 検索の条件を指定（緯度経度、半径、検索の分類）
+              var request = {
+                  location: mapLatLng,
+                  radius: 1000,
+                  types: ['physiotherapist']
+              };
+              var service = new google.maps.places.PlacesService(map);
+              service.search(request, Result_Places);
+              //　マップにマーカーを表示する
+              var marker = new google.maps.Marker({
+                map : map,             // 対象の地図オブジェクト
+                position : mapLatLng   // 緯度・経度
+              });
+            },
+            // 取得失敗した場合
+            function(error) {
+              // エラーメッセージを表示
+              switch(error.code) {
+                case 1: // PERMISSION_DENIED
+                  alert("位置情報の利用が許可されていません");
+                  break;
+                case 2: // POSITION_UNAVAILABLE
+                  alert("現在位置が取得できませんでした");
+                  break;
+                case 3: // TIMEOUT
+                  alert("タイムアウトになりました");
+                  break;
+                default:
+                  alert("その他のエラー(エラーコード:"+error.code+")");
+                  break;
+              }
+            }
+            // 検索結果を受け取る
+            function Result_Places(results, status){
+              // Placesが検家に成功したかとマうかをチェック
+              if(status == google.maps.places.PlacesServiceStatus.OK) {
+                  for (var i = 0; i < results.length; i++) {
+                      // 検索結果の数だけ反復処理を変数placeに格納
+                      var place = results[i];
+                      createMarker({
+                           text : place.name,
+                           position : place.geometry.location
+                      });
+                  }
+              }
+            }
+          );
+        // Geolocation APIに対応していない
+        } else {
+          alert("この端末では位置情報が取得できません");
+        }
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpFzOqH3Gws68wOi1Q16vd5tZrXKup_Tw&callback=initMap" async defer></script>
+  </div>
+</div>

@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   resources :admins, only: [:show]
   resources :answers, only: [:new, :show, :create, :edit, :update, :destroy]
   resources :playlists, only: [:index]
+  resources :maps, only: [:index]
   
   # search controller
   get '/search', to: 'searchs#search'

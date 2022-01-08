@@ -11,6 +11,12 @@
       <div class="description">Question, Music, Userを検索</div>
     </li>
     <li class="header-item">
+      <%= link_to maps_path do %>
+        <i class="fas fa-map-marked-alt" style="color: white"></i>
+      <% end %>
+      <div class="description">心療内科を検索</div>
+    </li>
+    <li class="header-item">
       <% if user_signed_in? %>
         <% if current_user.avatar.attached? %>
           <%= link_to image_tag(current_user.avatar), user_path(current_user.id) %>
