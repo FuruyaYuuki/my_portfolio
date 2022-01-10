@@ -21,8 +21,9 @@
   - 質問投稿機能 ※削除可
   - 新規登録機能(devise)
   - ログイン機能(devise)
-  - おすすめプレイリスト提案機能
-  - 検索機能 ※User、Question
+  - おすすめプレイリスト提案機能(Spotify API)
+  - 検索機能 ※User、Question(同時に検索ワードが含まれた曲を提案)
+  - 医療機関検索機能(Google Maps API)
   - いいね機能(Ajax)
   - ユーザーの投稿、いいね閲覧機能
   - プロフィール画像投稿機能(Active Storage, S3) 
@@ -30,7 +31,9 @@
 - 管理者機能
   - 回答機能 ※編集、削除、質問削除可
   - ログイン機能(devise) 
-  - 検索機能 ※User、Question
+  - おすすめプレイリスト提案機能(Spotify API)
+  - 検索機能 ※User、Question(同時に検索ワードが含まれた曲を提案)
+  - 医療機関検索機能(Google Maps API)
   - ユーザーの投稿、いいね閲覧機能
   - プロフィール画像投稿機能(Active Storage, S3) 
 

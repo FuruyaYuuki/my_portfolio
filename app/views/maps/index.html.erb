@@ -32,15 +32,39 @@
               var request = {
                   location: mapLatLng,
                   radius: 1000,
-                  types: ['physiotherapist']
+                  types: ['doctor']
               };
               var service = new google.maps.places.PlacesService(map);
               service.search(request, Result_Places);
-              //　マップにマーカーを表示する
-              var marker = new google.maps.Marker({
-                map : map,             // 対象の地図オブジェクト
-                position : mapLatLng   // 緯度・経度
-              });
+              // 検索結果を受け取る
+              function Result_Places(results, status){
+                // Placesが検索に成功したかどうかをチェック
+                if(status == google.maps.places.PlacesServiceStatus.OK) {
+                  for (var i = 0; i < results.length; i++) {
+                    // 検索結果の数だけ反復処理を変数placeに格納
+                    var place = results[i];
+                    createMarker({
+                      text : place.name,
+                      position : place.geometry.location
+                    });
+                  }
+                }
+              }
+              // 該当する位置にマーカーを表示
+              function createMarker(options) {
+                  // マップ情報を保持しているmyMapオブジェクトを指定
+                  options.map = map;
+                  // Markcrクラスのオブジェクトmarkerを作成
+                  var marker = new google.maps.Marker(options);
+                  // 各施設の吹き出し(情報ウインドウ)に表示させる処理
+                  var infoWnd = new google.maps.InfoWindow();
+                  infoWnd.setContent(options.text);
+                  // addListenerメソッドを使ってイベントリスナーを登録
+                  google.maps.event.addListener(marker, 'click', function(){
+                      infoWnd.open(map, marker);
+                  });
+                  return marker;
+              }
             },
             // 取得失敗した場合
             function(error) {
@@ -60,20 +84,6 @@
                   break;
               }
             }
-            // 検索結果を受け取る
-            function Result_Places(results, status){
-              // Placesが検家に成功したかとマうかをチェック
-              if(status == google.maps.places.PlacesServiceStatus.OK) {
-                  for (var i = 0; i < results.length; i++) {
-                      // 検索結果の数だけ反復処理を変数placeに格納
-                      var place = results[i];
-                      createMarker({
-                           text : place.name,
-                           position : place.geometry.location
-                      });
-                  }
-              }
-            }
           );
         // Geolocation APIに対応していない
         } else {
@@ -81,6 +91,6 @@
         }
       }
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpFzOqH3Gws68wOi1Q16vd5tZrXKup_Tw&callback=initMap" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&callback=initMap&libraries=places" async defer></script>
   </div>
 </div>
