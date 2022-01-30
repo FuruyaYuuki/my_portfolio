@@ -1,5 +1,5 @@
 <div class="boxes">
-  <% @questions.find_each do |question| %>
+  <% @questions.each do |question| %>
     <div class="box" id="question_<%= question.id %>">
       <%= render 'top', question: question %>
     </div>
