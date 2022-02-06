@@ -19,7 +19,7 @@
     
     <div class="content">
       <div class="left">
-        <%= render 'commons/left', playlists: RSpotify::Playlist.search('はげまして', limit: 6) %>
+        <%= render 'commons/left', playlists: RSpotify::Playlist.search('はげまして', limit: 5) %>
       </div>
       <div class="right">
         <%= render 'commons/right', users: User.all.first(5) %>
