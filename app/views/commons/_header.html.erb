@@ -1,7 +1,10 @@
 <div class="container">
   <ul class="header-list">
     <li class="header-item">
-      <a href="/"><img src="/hakui.png" alt="画像がありません" style="width: 20px;" ></a>
+      <%= link_to root_path, target: "_blank", style: "color: white; margin-bottom: 5px;" do %>
+        <%= image_tag "/hakui.png", alt: "画像がありません", style: "width: 20px;" %>
+        Opc
+      <% end %>
       <div class="description">ホームに戻る</div>
     </li>
     <li class="header-item">
