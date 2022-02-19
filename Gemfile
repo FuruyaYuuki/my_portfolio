@@ -40,3 +40,4 @@ gem 'font-awesome-sass'
 gem 'rspotify'
 gem 'dotenv-rails'
 gem 'aws-sdk-s3', require: false
+gem 'react-rails'

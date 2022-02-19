@@ -1,38 +1,38 @@
 // ヘッダー
 .header-list {
   display: grid;
-  grid-template-columns: 25% 25% 25% 25%;
-  justify-content: center;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  place-items: center;
 }
 .header-item{
   position: relative;
   cursor: pointer;
   display: inline-block;
 }
+// header-itemだと適応されないstyleがあるため
 .header-item a{
   font-size: 13px;
   transition: all 0.5s;
-  margin:0;
-  padding:0;
+  color: white;
 }
 .header-item a:hover {
   color: rgba(255, 255, 255, 0.973);
 }
-.description {
-    display: none;
-    position: absolute;
-    padding: 10px;
-    font-size: 12px;
-    line-height: 1.6em;
-    color: #fff;
-    border-radius: 5px;
-    background: #000;
-    width: 100px;
+.header-item-description {
+  display: none;
+  position: absolute;
+  padding: 10px;
+  font-size: 12px;
+  line-height: 1.6em;
+  color: #fff;
+  border-radius: 5px;
+  background: #000;
+  width: 100px;
 }
-.header-item:hover .description{
-    display: inline-block;
-    top: 0px;
-    left: 80px;
+.header-item:hover .header-item-description {
+  display: inline-block;
+  top: 0px;
+  left: 80px;
 }
 
 // フッター

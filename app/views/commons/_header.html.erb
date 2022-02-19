@@ -1,46 +1,47 @@
-<div class="container">
-  <ul class="header-list">
-    <li class="header-item">
-      <%= link_to root_path, target: "_blank", style: "color: white; margin-bottom: 5px;" do %>
-        <%= image_tag "/hakui.png", alt: "画像がありません", style: "width: 20px;" %>
-        Opc
-      <% end %>
-      <div class="description">ホームに戻る</div>
-    </li>
-    <li class="header-item">
-      <%= link_to search_form_path do %>
-        <i class="fas fa-search" style="color: white"></i>
-      <% end %>
-      <div class="description">Question, Music, Userを検索</div>
-    </li>
-    <li class="header-item">
-      <%= link_to maps_path do %>
-        <i class="fas fa-map-marked-alt" style="color: white"></i>
-      <% end %>
-      <div class="description">近くの医療機関を探す</div>
-    </li>
-    <li class="header-item">
-      <% if user_signed_in? %>
-        <% if current_user.avatar.attached? %>
-          <%= link_to image_tag(current_user.avatar), user_path(current_user.id) %>
-          <div class="description">プロフィール画面へ</div>
-        <% else %>
-          <%= link_to image_tag("/no-profile.png"), user_path(current_user.id) %>
-          <div class="description">プロフィール画面へ</div>
-        <% end %>
-      <% elsif admin_signed_in? %>
-        <% if current_admin.avatar.attached? %>
-          <%= link_to image_tag(current_admin.avatar), admin_path(current_admin.id) %>
-          <div class="description">プロフィール画面へ</div>
-        <% else %>
-          <%= link_to image_tag("/no-profile.png"), admin_path(current_admin.id) %>
-          <div class="description">プロフィール画面へ</div>
-        <% end %>
+<ul class="header-list">
+  <li class="header-item">
+    <%= link_to root_path do %>
+      <%= image_tag "/hakui.png", alt: "画像がありません", style: "width: 20px;" %>
+      Opc
+    <% end %>
+    <div class="header-item-description">ホームに戻る</div>
+  </li>
+  <li class="header-item">
+    <%= link_to "Opcとは?", questions_path %>
+  </li>
+  <li class="header-item">
+    <%= link_to search_form_path do %>
+      <i class="fas fa-search"></i>
+    <% end %>
+    <div class="header-item-description">Question, Music, Userを検索</div>
+  </li>
+  <li class="header-item">
+    <%= link_to maps_path do %>
+      <i class="fas fa-map-marked-alt"></i>
+    <% end %>
+    <div class="header-item-description">近くの医療機関を探す</div>
+  </li>
+  <li class="header-item">
+    <% if user_signed_in? %>
+      <% if current_user.avatar.attached? %>
+        <%= link_to image_tag(current_user.avatar), user_path(current_user.id) %>
+        <div class="header-item-description">プロフィール画面へ</div>
       <% else %>
-        <%= link_to "ログイン", new_user_session_path, style: "color: white;" %>
-        <br>
-        <%= link_to "管理者ログイン", new_admin_session_path, style: "color: white;" %>
+        <%= link_to image_tag("/no-profile.png"), user_path(current_user.id) %>
+        <div class="header-item-description">プロフィール画面へ</div>
       <% end %>
-    </li>
-  </ul>
-</div>
+    <% elsif admin_signed_in? %>
+      <% if current_admin.avatar.attached? %>
+        <%= link_to image_tag(current_admin.avatar), admin_path(current_admin.id) %>
+        <div class="header-item-description">プロフィール画面へ</div>
+      <% else %>
+        <%= link_to image_tag("/no-profile.png"), admin_path(current_admin.id) %>
+        <div class="header-item-description">プロフィール画面へ</div>
+      <% end %>
+    <% else %>
+      <%= link_to "ログイン", new_user_session_path %>
+      <br>
+      <%= link_to "管理者ログイン", new_admin_session_path %>
+    <% end %>
+  </li>
+</ul>
