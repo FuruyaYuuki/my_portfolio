@@ -5,7 +5,7 @@ class SearchsController < ApplicationController
     @text = params["text"]
     @records = search_for(@model, @text)
     if params[:text].present?
-      @tracks = RSpotify::Track.search(params[:text], offset: 0, market: 'JP')
+      @tracks = RSpotify::Track.search(params[:text], market: 'JP')
     end
   end
   

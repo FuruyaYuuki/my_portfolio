@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::Base
+  # if devise無しだと全コントローラーに適応される
   before_action :configure_permitted_parameters, if: :devise_controller?
   
-  # Spotify API
+  # Spotify APIにアクセス
   require 'rspotify'
   RSpotify.authenticate(ENV['SPOTIFY_CLIENT_ID'], ENV['SPOTIFY_SECRET_ID'])
   
