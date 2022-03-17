@@ -1,0 +1,33 @@
+.answer-background
+  width: 600px
+  height: 500px
+  background-color: silver
+
+.box5-1
+  font-size: 15px
+  grid-row: 5
+  grid-column: 1
+
+.box5-2
+  font-size: 15px
+  grid-row: 5
+  grid-column: 2
+
+.box6
+  padding-left: 0
+  grid-row: 6
+  grid-column: 1 / span 2
+
+// スマートフォン
+@media only screen and (max-width: 400px)
+  .answer-background
+    width: 300px
+    height: 300px
+
+@media only screen and (min-width: 401px) and (max-width: 767px)
+  .answer-background
+    width: 400px
+    height: 300px
+
+// タブレット
+@media only screen and (min-width: 768px) and (max-width: 1023px)

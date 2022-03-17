@@ -1,0 +1,244 @@
+// initial state
+
+a
+  color: black
+  text-decoration: none
+
+ul
+  list-style: none
+  padding: 0
+
+img
+  width: 30px
+
+.container
+  text-align: center
+  width: 100%
+
+// application.html.erb
+
+body
+  margin: 0 auto
+  min-height: 100vh
+  padding-top: 47px
+  line-height: 15px
+  font-size: 13px
+
+header
+  background-color: rgb(80, 77, 77)
+  height: 5%
+  width: 100%
+  position: fixed
+  top: 0
+  z-index: 1
+
+.content
+  display: flex
+
+.left
+  width: 500px
+  padding-top: 10px
+  display: grid
+  justify-items: center
+
+.center
+  flex: 1
+
+  // 子要素でyieldを真ん中にするとページによってレイアウトが崩れるため
+  order: 1
+
+.right
+  width: 500px
+  padding-top: 10px
+  display: grid
+  justify-items: center
+
+  // 子要素でyieldを真ん中にするとページによってレイアウトが崩れるため
+  order: 2
+
+footer
+  background-color: rgb(80, 77, 77)
+  height: 7%
+  width: 100%
+  position: fixed
+  bottom: 0
+  z-index: 1
+
+// top.html.erb
+
+.boxes
+  width: 100%
+  display: grid
+  justify-items: center
+
+.box
+  width: 100%
+  height: 200px
+  background-color: silver
+  padding-left: 10px
+  margin-bottom: 2px
+  display: grid
+  grid-template-rows: 25% 25% 25% 25%
+  grid-template-columns: 35px 1fr
+  align-items: center
+
+.box1
+  font-size: 20px
+  grid-row: 1
+  grid-column: 1 / span 2
+
+  a
+    color: black
+
+    &:hover
+      background-color: silver
+
+.box2
+  font-size: 15px
+  grid-row: 2
+  grid-column: 1 / span 2
+
+.box3-1
+  grid-row: 3
+  grid-column: 1
+
+.box3-2
+  font-size: 15px
+  grid-row: 3
+  grid-column: 2
+
+.box4
+  padding-left: 0
+  grid-row: 4
+  grid-column: 1 / span 2
+
+.box-icon
+  float: left
+  margin-right: 10px
+
+// link_to area spread
+
+.box, .box4 a
+  position: relative
+
+.box1 a:before
+  content: ''
+  position: absolute
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+
+.question-box
+  position: fixed
+  bottom: 100px
+  right: 200px
+  font-size: 30px
+
+.signup-box
+  position: fixed
+  bottom: 200px
+  right: 170px
+  font-size: 30px
+
+// スマートフォン
+@media only screen and (max-width: 400px)
+  body
+    padding-top: 40px
+    padding-bottom: 38px
+
+  header
+    height: 7%
+
+  .left, .right
+    display: none
+
+  .box
+    height: 250px
+    padding-left: 10px
+    margin-bottom: 2px
+
+  .question-box
+    width: 100%
+    top: 15%
+    bottom: 0
+    right: 0
+    left: 67%
+    font-size: 20px
+
+  .signup-box
+    width: 100%
+    top: 10%
+    bottom: 0
+    left: 67%
+    font-size: 20px
+
+@media only screen and (min-width: 401px) and (max-width: 767px)
+  body
+    padding-top: 50px
+    padding-bottom: 50px
+
+  header
+    height: 7%
+
+  .left, .right
+    display: none
+
+  .box
+    width: 100%
+    height: 200px
+    padding-left: 10px
+    margin-bottom: 2px
+
+  .question-box
+    width: 100%
+    top: 15%
+    bottom: 0
+    right: 0
+    left: 72%
+    font-size: 20px
+
+  .signup-box
+    width: 100%
+    top: 10%
+    bottom: 0
+    left: 72%
+    font-size: 20px
+
+// タブレット
+@media only screen and (min-width: 768px) and (max-width: 1023px)
+  body
+    padding-top: 70px
+    padding-bottom: 70px
+
+  header
+    height: 7%
+
+  .left, .right
+    display: none
+
+  .box
+    width: 100%
+    height: 300px
+    padding-left: 10px
+    margin-bottom: 2px
+
+  .question-box
+    width: 100%
+    top: 15%
+    bottom: 0
+    right: 0
+    left: 75%
+    font-size: 30px
+
+  .signup-box
+    width: 100%
+    top: 10%
+    bottom: 0
+    left: 75%
+    font-size: 30px
+
+// PC
+@media only screen and (min-width: 1024px)
+  footer
+    display: none

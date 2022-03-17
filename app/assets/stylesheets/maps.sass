@@ -1,0 +1,29 @@
+.map-background
+  width: 700px
+  height: 700px
+  background-color: silver
+  display: grid
+  place-items: center
+
+.map
+  height: 600px
+  width: 600px
+
+// スマートフォン
+@media only screen and (max-width: 400px)
+  .map-background
+    width: 300px
+    height: 400px
+
+  .map
+    height: 250px
+    width: 250px
+
+@media only screen and (min-width: 401px) and (max-width: 767px)
+  .map-background
+    width: 400px
+    height: 500px
+
+  .map
+    height: 350px
+    width: 350px
