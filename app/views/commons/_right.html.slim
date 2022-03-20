@@ -1,0 +1,13 @@
+.user-list
+  h2
+    | ユーザー一覧
+  - users.each do |user|
+    .user-box
+      - if user.avatar.attached?
+        = link_to image_tag(user.avatar), user_path(user.id), class: "user-icon"
+      - else
+        = link_to image_tag("/no-profile.png"), user_path(user.id), class: "user-icon"
+      p.user-name
+        = user.nickname
+  footer
+    | ©️2021 FuruyaYuuki

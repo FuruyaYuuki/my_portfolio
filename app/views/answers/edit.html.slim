@@ -1,0 +1,13 @@
+.container
+  .boxes
+    .answer-background
+      h1
+        | 回答を編集
+      h3
+        span
+          | Q.
+        = @answer.question.text
+      = form_with model: @answer do |f|
+        = f.text_area :text, size: "33x5", maxlength: "200", autofocus: "true"
+        br
+        = f.submit "回答する"

@@ -34,10 +34,13 @@ end
 # Windows ではタイムゾーン情報用の tzinfo-data gem を含める必要があります
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+# フロントエンド
+gem 'font-awesome-sass'
+gem 'slim-rails'
+gem 'react-rails'
+
 # origin
 gem 'devise'
-gem 'font-awesome-sass'
 gem 'rspotify'
 gem 'dotenv-rails'
 gem 'aws-sdk-s3', require: false
-gem 'react-rails'

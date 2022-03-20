@@ -1,0 +1,14 @@
+.container
+  .boxes
+    .answer-background
+      h1
+        | 回答する
+      h3
+        span
+          | Q.
+        = @question.text
+      = form_with model: @answer do |f|
+        = f.text_area :text, placeholder: "例：ちょっとしたことでいいので、毎日1つ成し遂げたいことを決めて、それを達成するようにしましょう！(200文字以内)", size: "33x5", maxlength: "200"
+        = f.hidden_field :question_id, value: @question.id
+        br
+        = f.submit "回答する"

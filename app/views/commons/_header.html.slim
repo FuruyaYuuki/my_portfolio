@@ -1,0 +1,42 @@
+ul.header-list
+  li.header-item
+    = link_to root_path do
+      = image_tag "/hakui.png", alt: "画像がありません", style: "width: 20px;"
+      |  Opc 
+    .header-item-description
+      | ホームに戻る
+  li.header-item
+    = link_to "Opcとは?", questions_path
+  li.header-item
+    = link_to search_form_path do
+      i.fas.fa-search
+    .header-item-description
+      | Question, Music, Userを検索
+  li.header-item
+    = link_to maps_path do
+      i.fas.fa-map-marked-alt
+    .header-item-description
+      | 近くの医療機関を探す
+  li.header-item
+    - if user_signed_in?
+      - if current_user.avatar.attached?
+        = link_to image_tag(current_user.avatar), user_path(current_user.id)
+        .header-item-description
+          | プロフィール画面へ
+      - else
+        = link_to image_tag("/no-profile.png"), user_path(current_user.id)
+        .header-item-description
+          | プロフィール画面へ
+    - elsif admin_signed_in?
+      - if current_admin.avatar.attached?
+        = link_to image_tag(current_admin.avatar), admin_path(current_admin.id)
+        .header-item-description
+          | プロフィール画面へ
+      - else
+        = link_to image_tag("/no-profile.png"), admin_path(current_admin.id)
+        .header-item-description
+          | プロフィール画面へ
+    - else
+      = link_to "ログイン", new_user_session_path
+      br
+      = link_to "管理者ログイン", new_admin_session_path

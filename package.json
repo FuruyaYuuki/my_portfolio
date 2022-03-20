@@ -1,5 +1,6 @@
 {
   "name": "pcr",
+  "license": "UNLICENSED",
   "private": true,
   "dependencies": {
     "@babel/preset-react": "^7.16.7",
