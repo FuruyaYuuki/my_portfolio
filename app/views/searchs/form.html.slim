@@ -1,0 +1,8 @@
+.boxes
+  .search-background
+    h1[style="text-align: center;"]
+      | 検索画面
+    = form_tag(search_path, method: :get) do
+      = text_field_tag 'text'
+      = select_tag 'model', options_for_select({ "Question & Music" => "question", "User" => "user" })
+      = submit_tag '検索'
