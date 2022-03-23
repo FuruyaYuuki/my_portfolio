@@ -169,6 +169,7 @@ GEM
     multi_json (1.15.0)
     multi_xml (0.6.0)
     multipart-post (2.1.1)
+    mysql2 (0.5.3)
     netrc (0.11.0)
     nio4r (2.5.8)
     nokogiri (1.12.5)
@@ -281,7 +282,6 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sqlite3 (1.4.1)
     temple (0.8.2)
     thor (1.1.0)
     thread_safe (0.3.6)
@@ -329,6 +329,7 @@ DEPENDENCIES
   font-awesome-sass
   jbuilder (= 2.9.1)
   listen (= 3.1.5)
+  mysql2
   pg (= 1.1.4)
   puma (= 4.3.6)
   rails (= 6.0.3)
@@ -339,7 +340,6 @@ DEPENDENCIES
   slim-rails
   spring (= 2.1.0)
   spring-watcher-listen (= 2.0.1)
-  sqlite3 (= 1.4.1)
   turbolinks (= 5.2.0)
   tzinfo-data
   web-console (= 4.0.1)
